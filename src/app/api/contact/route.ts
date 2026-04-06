@@ -57,10 +57,14 @@ export async function POST(req: NextRequest) {
         )
       }
     } else {
-      // ── Development: save to local JSON file ──
-      console.log('[contact] Supabase not configured — saving to local file')
-      await saveToLocal(record)
-      console.log(`[contact] Saved message from: ${email}`)
+      // ── No Supabase: try local file, fall back to console log (Vercel read-only fs) ──
+      try {
+        await saveToLocal(record)
+        console.log(`[contact] Saved to local file: ${email}`)
+      } catch {
+        // Vercel has a read-only filesystem — log the submission so it appears in function logs
+        console.log('[contact] Submission (no database configured):', JSON.stringify(record))
+      }
     }
 
     return NextResponse.json(

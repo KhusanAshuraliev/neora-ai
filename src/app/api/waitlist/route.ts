@@ -93,14 +93,17 @@ export async function POST(req: NextRequest) {
         )
       }
     } else {
-      // ── Development: save to local JSON file ──
-      console.log('[waitlist] Supabase not configured — using local file fallback')
-      const result = await saveToLocal(email)
-      if (result.duplicate) {
-        return NextResponse.json(
-          { error: "You're already on the waitlist — we'll be in touch soon!" },
-          { status: 409 }
-        )
+      // ── No Supabase: try local file, fall back to console log (Vercel read-only fs) ──
+      try {
+        const result = await saveToLocal(email)
+        if (result.duplicate) {
+          return NextResponse.json(
+            { error: "You're already on the waitlist — we'll be in touch soon!" },
+            { status: 409 }
+          )
+        }
+      } catch {
+        console.log('[waitlist] Submission (no database configured):', email)
       }
       console.log(`[waitlist] Saved to local file: ${email}`)
     }
