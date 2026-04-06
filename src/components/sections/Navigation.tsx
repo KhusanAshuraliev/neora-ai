@@ -10,6 +10,7 @@ const links = [
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Technology', href: '#technology' },
   { label: 'Vision', href: '#vision' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navigation() {

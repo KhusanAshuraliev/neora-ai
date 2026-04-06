@@ -6,6 +6,7 @@ import HowItWorks from '@/components/sections/HowItWorks'
 import Technology from '@/components/sections/Technology'
 import FutureVision from '@/components/sections/FutureVision'
 import Waitlist from '@/components/sections/Waitlist'
+import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
 import SmoothScroll from '@/components/ui/SmoothScroll'
 
@@ -21,6 +22,7 @@ export default function HomePage() {
         <Technology />
         <FutureVision />
         <Waitlist />
+        <Contact />
       </main>
       <Footer />
     </SmoothScroll>
