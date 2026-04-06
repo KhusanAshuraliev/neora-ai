@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.env
+.env.local
+.env.*.local
+waitlist-local.json
+.DS_Store
+.vercel
