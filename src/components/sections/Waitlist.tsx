@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import SectionWrapper from '@/components/ui/SectionWrapper'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 type State = 'idle' | 'loading' | 'success' | 'error' | 'duplicate'
@@ -54,87 +53,68 @@ export default function Waitlist() {
   const isSuccess = state === 'success' || state === 'duplicate'
 
   return (
-    <SectionWrapper
-      id="waitlist"
-      className="bg-gradient-to-b from-[#f8f7ff] via-[#ffffff] to-[#f8f7ff]"
-    >
-      {/* Glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 70%)',
-        }}
-      />
+    <section id="waitlist" className="section-gray">
+      <div className="max-w-[980px] mx-auto px-5 py-24 md:py-32">
+        <div className="max-w-[560px] mx-auto text-center">
 
-      <div className="relative max-w-2xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7 }}
-          className="flex justify-center mb-5"
-        >
-          <SectionLabel>Early Access</SectionLabel>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6 }}
+            className="flex justify-center mb-5"
+          >
+            <SectionLabel>Early Access</SectionLabel>
+          </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1830] leading-[1.1] mb-5"
-        >
-          Be among{' '}
-          <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
-            the first.
-          </span>
-        </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+            className="font-display font-bold text-[40px] md:text-[56px] tracking-[-0.025em] leading-[1.08] text-[#1d1d1f] mb-5"
+          >
+            Be among{' '}
+            <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
+              the first.
+            </span>
+          </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#5b5880] text-lg leading-relaxed mb-12"
-        >
-          Neora AI is coming soon. Join the waitlist and we&apos;ll reach out
-          when your place is ready.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+            className="text-[17px] text-[#6e6e73] leading-[1.6] mb-10"
+          >
+            Neora AI is coming soon. Join the waitlist and we&apos;ll reach out
+            when your place is ready.
+          </motion.p>
 
-        {/* Form */}
-        <AnimatePresence mode="wait">
-          {isSuccess ? (
-            <motion.div
-              key="success"
-              initial={{ opacity: 0, scale: 0.92, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
-              className="glass-card rounded-3xl p-10 flex flex-col items-center gap-5"
-            >
-              {/* Checkmark icon */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] flex items-center justify-center shadow-[0_0_40px_rgba(124,58,237,0.5)]">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <p className="font-display text-2xl font-semibold text-[#1a1830]">
-                {state === 'duplicate' ? "You're already in!" : "You're on the list."}
-              </p>
-              <p className="text-[#5b5880] text-base text-center">{message}</p>
-            </motion.div>
-          ) : (
-            <motion.form
-              key="form"
-              onSubmit={handleSubmit}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <div className="relative flex-1">
+          <AnimatePresence mode="wait">
+            {isSuccess ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.95, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-2xl p-10 flex flex-col items-center gap-4"
+              >
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="font-display text-[22px] font-semibold text-[#1d1d1f]">
+                  {state === 'duplicate' ? "You're already in!" : "You're on the list."}
+                </p>
+                <p className="text-[15px] text-[#6e6e73]">{message}</p>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col sm:flex-row gap-3"
+              >
                 <input
                   type="email"
                   value={email}
@@ -146,71 +126,58 @@ export default function Waitlist() {
                   required
                   disabled={state === 'loading'}
                   className={[
-                    'w-full h-14 px-5 rounded-full text-base text-[#1a1830] placeholder-[#9ca3af]',
-                    'bg-[rgba(124,58,237,0.05)] border transition-all duration-200 outline-none',
-                    'focus:ring-2 focus:ring-[rgba(124,58,237,0.5)] focus:border-[rgba(124,58,237,0.5)]',
-                    state === 'error'
-                      ? 'border-red-500/50'
-                      : 'border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.14)]',
+                    'flex-1 h-12 px-5 rounded-full text-[15px] text-[#1d1d1f] placeholder-[#86868b]',
+                    'bg-white border outline-none transition-all duration-150',
+                    'focus:ring-2 focus:ring-[#7c3aed]/30 focus:border-[#7c3aed]',
+                    state === 'error' ? 'border-red-400' : 'border-[#d2d2d7]',
                     'disabled:opacity-50',
                   ].join(' ')}
                 />
-              </div>
+                <button
+                  type="submit"
+                  disabled={state === 'loading' || !email.trim()}
+                  className="h-12 px-6 rounded-full text-[15px] font-medium text-white bg-[#7c3aed] hover:bg-[#6d28d9] transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-2 min-w-[130px]"
+                >
+                  {state === 'loading' ? (
+                    <>
+                      <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      Joining...
+                    </>
+                  ) : (
+                    'Join Waitlist'
+                  )}
+                </button>
+              </motion.form>
+            )}
+          </AnimatePresence>
 
-              <button
-                type="submit"
-                disabled={state === 'loading' || !email.trim()}
-                className={[
-                  'h-14 px-7 rounded-full text-base font-medium text-white whitespace-nowrap',
-                  'bg-gradient-to-r from-[#7c3aed] to-[#a855f7]',
-                  'hover:from-[#6d28d9] hover:to-[#9333ea]',
-                  'shadow-[0_0_25px_rgba(124,58,237,0.4)] hover:shadow-[0_0_40px_rgba(124,58,237,0.6)]',
-                  'transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed',
-                  'flex items-center justify-center gap-2 min-w-[140px]',
-                ].join(' ')}
+          <AnimatePresence>
+            {state === 'error' && message && (
+              <motion.p
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="mt-3 text-red-500 text-[13px] text-center"
               >
-                {state === 'loading' ? (
-                  <>
-                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    Joining...
-                  </>
-                ) : (
-                  'Join Waitlist'
-                )}
-              </button>
-            </motion.form>
-          )}
-        </AnimatePresence>
+                {message}
+              </motion.p>
+            )}
+          </AnimatePresence>
 
-        {/* Error message */}
-        <AnimatePresence>
-          {state === 'error' && message && (
+          {!isSuccess && (
             <motion.p
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              className="mt-3 text-red-400 text-sm text-center"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }} transition={{ delay: 0.5 }}
+              className="mt-4 text-[12px] text-[#86868b]"
             >
-              {message}
+              No spam. No commitment. Unsubscribe anytime.
             </motion.p>
           )}
-        </AnimatePresence>
-
-        {!isSuccess && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="mt-5 text-[#9ca3af] text-xs"
-          >
-            No spam. No commitment. Unsubscribe anytime.
-          </motion.p>
-        )}
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   )
 }

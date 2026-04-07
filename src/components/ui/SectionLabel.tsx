@@ -3,21 +3,20 @@ import { cn } from '@/lib/utils'
 interface SectionLabelProps {
   children: React.ReactNode
   className?: string
+  light?: boolean
 }
 
-export default function SectionLabel({ children, className }: SectionLabelProps) {
+// Apple-style eyebrow — simple colored text, no pill or badge
+export default function SectionLabel({ children, className, light }: SectionLabelProps) {
   return (
-    <div
+    <p
       className={cn(
-        'inline-flex items-center gap-2 mb-5',
-        'px-3.5 py-1.5 rounded-full',
-        'border border-[rgba(124,58,237,0.25)] bg-[rgba(124,58,237,0.07)]',
-        'text-[#a855f7] text-xs font-medium tracking-[0.15em] uppercase',
+        'text-sm font-semibold tracking-wide mb-4',
+        light ? 'text-[#a78bfa]' : 'text-[#7c3aed]',
         className
       )}
     >
-      <span className="w-1 h-1 rounded-full bg-[#a855f7] animate-pulse" />
       {children}
-    </div>
+    </p>
   )
 }

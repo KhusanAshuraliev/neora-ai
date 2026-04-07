@@ -15,26 +15,22 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-[rgba(0,0,0,0.04)] bg-[#f8f7ff]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
-        {/* Top row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
+    <footer className="border-t border-[#d2d2d7] bg-[#f5f5f7]">
+      <div className="max-w-[980px] mx-auto px-5 py-16 md:py-20">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-1 mb-4">
-              <span className="font-display font-bold text-xl tracking-[0.12em] text-[#1a1830]">
-                NEORA
-              </span>
-              <span className="text-[10px] font-medium text-[#a855f7] tracking-widest mt-0.5">
-                AI
-              </span>
+          <div>
+            <div className="flex items-baseline gap-0.5 mb-3">
+              <span className="font-display font-semibold text-[17px] tracking-tight text-[#1d1d1f]">Neora</span>
+              <span className="text-[11px] font-semibold text-[#7c3aed] ml-0.5">AI</span>
             </div>
-            <p className="text-[#9ca3af] text-sm leading-relaxed mb-6">
+            <p className="text-[14px] text-[#86868b] leading-relaxed mb-4">
               Your mind. Beyond time.
             </p>
             <a
               href="mailto:haapai.team@gmail.com"
-              className="text-[#5b5880] hover:text-[#a855f7] text-sm transition-colors duration-200"
+              className="text-[14px] text-[#6e6e73] hover:text-[#7c3aed] transition-colors duration-150"
             >
               haapai.team@gmail.com
             </a>
@@ -42,7 +38,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="text-[#9ca3af] text-xs font-medium tracking-[0.12em] uppercase mb-5">
+            <p className="text-[11px] font-semibold text-[#86868b] tracking-[0.08em] uppercase mb-5">
               Navigation
             </p>
             <ul className="flex flex-col gap-3">
@@ -50,7 +46,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#5b5880] hover:text-[#1a1830] text-sm transition-colors duration-200"
+                    className="text-[14px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -61,7 +57,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="text-[#9ca3af] text-xs font-medium tracking-[0.12em] uppercase mb-5">
+            <p className="text-[11px] font-semibold text-[#86868b] tracking-[0.08em] uppercase mb-5">
               Legal
             </p>
             <ul className="flex flex-col gap-3">
@@ -69,7 +65,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#5b5880] hover:text-[#1a1830] text-sm transition-colors duration-200"
+                    className="text-[14px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -79,16 +75,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom row */}
-        <div className="pt-8 border-t border-[rgba(124,58,237,0.05)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#9ca3af] text-xs">
+        <div className="pt-8 border-t border-[#d2d2d7] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[12px] text-[#86868b]">
             © {new Date().getFullYear()} Neora AI. All rights reserved.
           </p>
-          <p className="text-[#9ca3af] text-xs">
+          <p className="text-[12px] text-[#86868b]">
             Created by{' '}
             <a
               href="mailto:haapai.team@gmail.com"
-              className="text-[#5b5880] hover:text-[#a855f7] transition-colors"
+              className="text-[#6e6e73] hover:text-[#7c3aed] transition-colors duration-150"
             >
               Neora AI Team
             </a>

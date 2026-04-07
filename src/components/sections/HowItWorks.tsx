@@ -1,8 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import SectionWrapper from '@/components/ui/SectionWrapper'
+import { motion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 const steps = [
@@ -53,71 +51,53 @@ const steps = [
 ]
 
 export default function HowItWorks() {
-  const headingRef = useRef(null)
-  const headingInView = useInView(headingRef, { once: true, margin: '-80px' })
-
   return (
-    <SectionWrapper
-      id="how-it-works"
-      className="bg-gradient-to-b from-[#ffffff] via-[#f0eefe] to-[#ffffff]"
-    >
-      {/* Heading */}
-      <div ref={headingRef} className="text-center mb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <SectionLabel>The Process</SectionLabel>
-        </motion.div>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1830] leading-[1.1]"
-        >
-          How it{' '}
-          <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
-            works
-          </span>
-        </motion.h2>
-      </div>
+    <section id="how-it-works" className="section-gray">
+      <div className="max-w-[980px] mx-auto px-5 py-24 md:py-32">
 
-      {/* Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-        {steps.map((step, i) => (
-          <motion.div
-            key={step.number}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, delay: i * 0.12, ease: 'easeOut' }}
-            className="group relative glass-card rounded-3xl p-8 hover:border-[rgba(124,58,237,0.25)] transition-all duration-300 hover:bg-[rgba(124,58,237,0.04)]"
-          >
-            {/* Top row: number + icon */}
-            <div className="flex items-center justify-between mb-6">
-              <span className="font-display text-5xl font-bold text-[rgba(124,58,237,0.2)] group-hover:text-[rgba(124,58,237,0.35)] transition-colors duration-300">
-                {step.number}
-              </span>
-              <div className="w-12 h-12 rounded-2xl bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] flex items-center justify-center text-[#a855f7] group-hover:bg-[rgba(124,58,237,0.18)] transition-colors duration-300">
-                {step.icon}
-              </div>
-            </div>
-
-            <h3 className="font-display text-xl font-semibold text-[#1a1830] mb-3">
-              {step.title}
-            </h3>
-            <p className="text-[#5b5880] text-base leading-relaxed">
-              {step.description}
-            </p>
-
-            {/* Bottom connector dot (not on last two items on md+) */}
-            {i < 2 && (
-              <div className="hidden md:block absolute -bottom-3 left-1/2 -translate-x-1/2 w-px h-6 bg-gradient-to-b from-[rgba(124,58,237,0.3)] to-transparent" />
-            )}
+        <div className="text-center max-w-[640px] mx-auto mb-20">
+          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <SectionLabel>The Process</SectionLabel>
           </motion.div>
-        ))}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+            className="font-display font-bold text-[40px] md:text-[56px] tracking-[-0.025em] leading-[1.08] text-[#1d1d1f]"
+          >
+            Four steps to{' '}
+            <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
+              forever.
+            </span>
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#d2d2d7] rounded-2xl overflow-hidden">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="bg-white p-8 md:p-10"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-display text-[48px] font-bold text-[#d2d2d7] leading-none">
+                  {step.number}
+                </span>
+                <div className="w-11 h-11 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-[#7c3aed]">
+                  {step.icon}
+                </div>
+              </div>
+              <h3 className="font-display text-[19px] font-semibold text-[#1d1d1f] mb-2">
+                {step.title}
+              </h3>
+              <p className="text-[15px] text-[#6e6e73] leading-[1.55]">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   )
 }

@@ -13,89 +13,60 @@ const visions = [
 
 export default function FutureVision() {
   return (
-    <section
-      id="vision"
-      className="relative w-full py-36 md:py-48 overflow-hidden"
-      style={{
-        background:
-          'linear-gradient(180deg, #f8f7ff 0%, #ffffff 40%, #f0eefe 60%, #ffffff 80%, #f8f7ff 100%)',
-      }}
-    >
-      {/* Large glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 70%)',
-        }}
-      />
+    <section id="vision" className="section-dark">
+      <div className="max-w-[980px] mx-auto px-5 py-24 md:py-36 text-center">
 
-      <div className="relative max-w-5xl mx-auto px-6 md:px-12 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="flex justify-center mb-8"
         >
-          <SectionLabel>The Future</SectionLabel>
+          <SectionLabel light>The Future</SectionLabel>
         </motion.div>
 
-        {/* Big "Imagine" */}
         <motion.h2
-          initial={{ opacity: 0, scale: 0.92 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-[rgba(0,0,0,0.06)] tracking-tight mb-16 select-none"
+          initial={{ opacity: 0, scale: 0.94 }} whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }} transition={{ duration: 1, ease: 'easeOut' }}
+          className="font-display font-bold text-[72px] md:text-[96px] lg:text-[120px] tracking-[-0.04em] leading-none text-white/[0.07] select-none mb-16"
         >
           Imagine...
         </motion.h2>
 
-        {/* Vision lines */}
-        <div className="flex flex-col gap-6 mb-20">
+        <div className="flex flex-col gap-7 mb-20">
           {visions.map((text, i) => (
             <motion.p
               key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -24 : 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
+              viewport={{ once: true }}
               transition={{ duration: 0.9, delay: i * 0.15, ease: 'easeOut' }}
-              className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-[#1a1830] leading-snug"
+              className="font-display text-[28px] md:text-[36px] font-semibold text-white tracking-[-0.02em] leading-snug"
             >
               {text}
             </motion.p>
           ))}
         </div>
 
-        {/* Closing statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 1 }}
-          className="mb-14"
+        <motion.p
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.8 }}
+          className="text-[17px] text-[#86868b] leading-[1.6] max-w-[560px] mx-auto mb-12"
         >
-          <p className="font-display text-xl md:text-2xl text-[#5b5880] leading-relaxed max-w-2xl mx-auto">
-            This isn&apos;t science fiction. It&apos;s the direction we&apos;re building toward,
-            one conversation at a time.
-          </p>
-        </motion.div>
+          This isn&apos;t science fiction. It&apos;s the direction we&apos;re building toward,
+          one conversation at a time.
+        </motion.p>
 
-        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
         >
           <Link
             href="#waitlist"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium text-white bg-gradient-to-r from-[#7c3aed] to-[#a855f7] hover:from-[#6d28d9] hover:to-[#9333ea] shadow-[0_0_40px_rgba(124,58,237,0.4)] hover:shadow-[0_0_60px_rgba(124,58,237,0.6)] transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-[17px] font-medium text-white bg-[#7c3aed] hover:bg-[#6d28d9] transition-colors duration-150"
           >
             Begin Your Legacy
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </Link>
         </motion.div>
