@@ -31,14 +31,14 @@ export default function Navigation() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         scrolled
-          ? 'glass border-b border-[rgba(255,255,255,0.05)]'
+          ? 'glass border-b border-[rgba(0,0,0,0.04)]'
           : 'bg-transparent'
       )}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 md:h-18 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1 group">
-          <span className="font-display font-bold text-lg tracking-[0.12em] text-[#f0efff] group-hover:text-white transition-colors">
+          <span className="font-display font-bold text-lg tracking-[0.12em] text-[#1a1830] group-hover:text-[#7c3aed] transition-colors">
             NEORA
           </span>
           <span className="text-[10px] font-medium text-[#a855f7] tracking-widest mt-0.5">
@@ -52,7 +52,7 @@ export default function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-[#8b8ba7] hover:text-[#f0efff] transition-colors duration-200 tracking-wide"
+              className="text-sm text-[#5b5880] hover:text-[#1a1830] transition-colors duration-200 tracking-wide"
             >
               {link.label}
             </Link>
@@ -76,7 +76,7 @@ export default function Navigation() {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden p-2 text-[#8b8ba7] hover:text-white transition-colors"
+          className="md:hidden p-2 text-[#5b5880] hover:text-[#1a1830] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -109,14 +109,14 @@ export default function Navigation() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden glass border-t border-[rgba(255,255,255,0.05)] px-6 py-6 flex flex-col gap-4"
+          className="md:hidden glass border-t border-[rgba(0,0,0,0.04)] px-6 py-6 flex flex-col gap-4"
         >
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-base text-[#8b8ba7] hover:text-[#f0efff] transition-colors py-1"
+              className="text-base text-[#5b5880] hover:text-[#1a1830] transition-colors py-1"
             >
               {link.label}
             </Link>

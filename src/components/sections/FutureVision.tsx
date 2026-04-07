@@ -18,7 +18,7 @@ export default function FutureVision() {
       className="relative w-full py-36 md:py-48 overflow-hidden"
       style={{
         background:
-          'linear-gradient(180deg, #020208 0%, #07070f 40%, #0d0d1a 60%, #07070f 80%, #020208 100%)',
+          'linear-gradient(180deg, #f8f7ff 0%, #ffffff 40%, #f0eefe 60%, #ffffff 80%, #f8f7ff 100%)',
       }}
     >
       {/* Large glow */}
@@ -47,7 +47,7 @@ export default function FutureVision() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-[rgba(255,255,255,0.06)] tracking-tight mb-16 select-none"
+          className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-[rgba(0,0,0,0.06)] tracking-tight mb-16 select-none"
         >
           Imagine...
         </motion.h2>
@@ -61,7 +61,7 @@ export default function FutureVision() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.9, delay: i * 0.15, ease: 'easeOut' }}
-              className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-[#f0efff] leading-snug"
+              className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-[#1a1830] leading-snug"
             >
               {text}
             </motion.p>
@@ -76,7 +76,7 @@ export default function FutureVision() {
           transition={{ duration: 1 }}
           className="mb-14"
         >
-          <p className="font-display text-xl md:text-2xl text-[#8b8ba7] leading-relaxed max-w-2xl mx-auto">
+          <p className="font-display text-xl md:text-2xl text-[#5b5880] leading-relaxed max-w-2xl mx-auto">
             This isn&apos;t science fiction. It&apos;s the direction we&apos;re building toward,
             one conversation at a time.
           </p>

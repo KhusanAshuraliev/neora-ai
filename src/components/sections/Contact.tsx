@@ -15,9 +15,9 @@ interface FormData {
 }
 
 const inputClass = [
-  'w-full h-12 px-4 rounded-xl text-sm text-[#f0efff] placeholder-[#4a4a6a]',
-  'bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]',
-  'hover:border-[rgba(255,255,255,0.14)] focus:border-[rgba(124,58,237,0.5)]',
+  'w-full h-12 px-4 rounded-xl text-sm text-[#1a1830] placeholder-[#9ca3af]',
+  'bg-[rgba(124,58,237,0.05)] border border-[rgba(0,0,0,0.08)]',
+  'hover:border-[rgba(0,0,0,0.14)] focus:border-[rgba(124,58,237,0.5)]',
   'focus:ring-2 focus:ring-[rgba(124,58,237,0.2)] outline-none transition-all duration-200',
   'disabled:opacity-50',
 ].join(' ')
@@ -81,7 +81,7 @@ export default function Contact() {
   return (
     <SectionWrapper
       id="contact"
-      className="bg-gradient-to-b from-[#07070f] to-[#020208]"
+      className="bg-gradient-to-b from-[#ffffff] to-[#f8f7ff]"
     >
       {/* Glow */}
       <div
@@ -110,7 +110,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#f0efff] leading-[1.1] mb-4"
+            className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#1a1830] leading-[1.1] mb-4"
           >
             Have a{' '}
             <span className="bg-gradient-to-r from-[#22d3ee] to-[#a855f7] bg-clip-text text-transparent">
@@ -123,7 +123,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[#8b8ba7] text-base leading-relaxed"
+            className="text-[#5b5880] text-base leading-relaxed"
           >
             We&apos;d love to hear from you. Send us a message and we&apos;ll
             get back to you as soon as possible.
@@ -146,15 +146,15 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="font-display text-2xl font-semibold text-[#f0efff]">
+              <p className="font-display text-2xl font-semibold text-[#1a1830]">
                 Message received.
               </p>
-              <p className="text-[#8b8ba7]">
+              <p className="text-[#5b5880]">
                 Thank you for reaching out. We&apos;ll get back to you shortly at your email.
               </p>
               <button
                 onClick={() => setState('idle')}
-                className="mt-2 text-sm text-[#a855f7] hover:text-[#f0efff] transition-colors"
+                className="mt-2 text-sm text-[#a855f7] hover:text-[#1a1830] transition-colors"
               >
                 Send another message
               </button>
@@ -172,7 +172,7 @@ export default function Contact() {
               {/* Name + Email row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[#8b8ba7] text-xs font-medium tracking-wide uppercase">
+                  <label className="text-[#5b5880] text-xs font-medium tracking-wide uppercase">
                     Full Name <span className="text-[#a855f7]">*</span>
                   </label>
                   <input
@@ -185,7 +185,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[#8b8ba7] text-xs font-medium tracking-wide uppercase">
+                  <label className="text-[#5b5880] text-xs font-medium tracking-wide uppercase">
                     Email <span className="text-[#a855f7]">*</span>
                   </label>
                   <input
@@ -201,9 +201,9 @@ export default function Contact() {
 
               {/* Phone */}
               <div className="flex flex-col gap-2">
-                <label className="text-[#8b8ba7] text-xs font-medium tracking-wide uppercase">
+                <label className="text-[#5b5880] text-xs font-medium tracking-wide uppercase">
                   Phone{' '}
-                  <span className="text-[#4a4a6a] normal-case tracking-normal">
+                  <span className="text-[#9ca3af] normal-case tracking-normal">
                     (optional)
                   </span>
                 </label>
@@ -219,7 +219,7 @@ export default function Contact() {
 
               {/* Message */}
               <div className="flex flex-col gap-2">
-                <label className="text-[#8b8ba7] text-xs font-medium tracking-wide uppercase">
+                <label className="text-[#5b5880] text-xs font-medium tracking-wide uppercase">
                   Message <span className="text-[#a855f7]">*</span>
                 </label>
                 <textarea
@@ -280,7 +280,7 @@ export default function Contact() {
                 )}
               </button>
 
-              <p className="text-[#4a4a6a] text-xs text-center">
+              <p className="text-[#9ca3af] text-xs text-center">
                 We typically respond within 24 hours.
               </p>
             </motion.form>

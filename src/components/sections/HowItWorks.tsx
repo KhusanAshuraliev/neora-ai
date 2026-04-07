@@ -59,7 +59,7 @@ export default function HowItWorks() {
   return (
     <SectionWrapper
       id="how-it-works"
-      className="bg-gradient-to-b from-[#07070f] via-[#0d0d1a] to-[#07070f]"
+      className="bg-gradient-to-b from-[#ffffff] via-[#f0eefe] to-[#ffffff]"
     >
       {/* Heading */}
       <div ref={headingRef} className="text-center mb-20">
@@ -74,7 +74,7 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 30 }}
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#f0efff] leading-[1.1]"
+          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1830] leading-[1.1]"
         >
           How it{' '}
           <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
@@ -104,10 +104,10 @@ export default function HowItWorks() {
               </div>
             </div>
 
-            <h3 className="font-display text-xl font-semibold text-[#f0efff] mb-3">
+            <h3 className="font-display text-xl font-semibold text-[#1a1830] mb-3">
               {step.title}
             </h3>
-            <p className="text-[#8b8ba7] text-base leading-relaxed">
+            <p className="text-[#5b5880] text-base leading-relaxed">
               {step.description}
             </p>
 

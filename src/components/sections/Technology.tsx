@@ -39,7 +39,7 @@ export default function Technology() {
   return (
     <SectionWrapper
       id="technology"
-      className="bg-gradient-to-b from-[#07070f] to-[#020208]"
+      className="bg-gradient-to-b from-[#ffffff] to-[#f8f7ff]"
     >
       <div className="text-center mb-20">
         <motion.div
@@ -55,7 +55,7 @@ export default function Technology() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#f0efff] leading-[1.1] mb-5"
+          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1830] leading-[1.1] mb-5"
         >
           Built on the frontier{' '}
           <span className="bg-gradient-to-r from-[#7c3aed] via-[#a855f7] to-[#22d3ee] bg-clip-text text-transparent">
@@ -67,7 +67,7 @@ export default function Technology() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#8b8ba7] text-lg max-w-2xl mx-auto leading-relaxed"
+          className="text-[#5b5880] text-lg max-w-2xl mx-auto leading-relaxed"
         >
           We combine the most advanced AI systems available to build something
           that has never existed before — a genuine digital extension of a human
@@ -96,10 +96,10 @@ export default function Technology() {
               className={`absolute inset-0 bg-gradient-to-br ${pillar.gradient} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500`}
             />
 
-            <h3 className="font-display text-xl font-semibold text-[#f0efff] mb-4 relative">
+            <h3 className="font-display text-xl font-semibold text-[#1a1830] mb-4 relative">
               {pillar.title}
             </h3>
-            <p className="text-[#8b8ba7] text-base leading-relaxed relative">
+            <p className="text-[#5b5880] text-base leading-relaxed relative">
               {pillar.description}
             </p>
           </motion.div>
@@ -112,7 +112,7 @@ export default function Technology() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="mt-12 text-center text-[#4a4a6a] text-xs tracking-wide max-w-2xl mx-auto leading-relaxed"
+        className="mt-12 text-center text-[#9ca3af] text-xs tracking-wide max-w-2xl mx-auto leading-relaxed"
       >
         Neora AI is currently in active development. Technology descriptions
         represent our vision and ongoing research. We are committed to

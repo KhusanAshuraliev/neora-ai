@@ -56,7 +56,7 @@ export default function Waitlist() {
   return (
     <SectionWrapper
       id="waitlist"
-      className="bg-gradient-to-b from-[#020208] via-[#07070f] to-[#020208]"
+      className="bg-gradient-to-b from-[#f8f7ff] via-[#ffffff] to-[#f8f7ff]"
     >
       {/* Glow */}
       <div
@@ -83,7 +83,7 @@ export default function Waitlist() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#f0efff] leading-[1.1] mb-5"
+          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1830] leading-[1.1] mb-5"
         >
           Be among{' '}
           <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
@@ -96,7 +96,7 @@ export default function Waitlist() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#8b8ba7] text-lg leading-relaxed mb-12"
+          className="text-[#5b5880] text-lg leading-relaxed mb-12"
         >
           Neora AI is coming soon. Join the waitlist and we&apos;ll reach out
           when your place is ready.
@@ -119,10 +119,10 @@ export default function Waitlist() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="font-display text-2xl font-semibold text-[#f0efff]">
+              <p className="font-display text-2xl font-semibold text-[#1a1830]">
                 {state === 'duplicate' ? "You're already in!" : "You're on the list."}
               </p>
-              <p className="text-[#8b8ba7] text-base text-center">{message}</p>
+              <p className="text-[#5b5880] text-base text-center">{message}</p>
             </motion.div>
           ) : (
             <motion.form
@@ -146,12 +146,12 @@ export default function Waitlist() {
                   required
                   disabled={state === 'loading'}
                   className={[
-                    'w-full h-14 px-5 rounded-full text-base text-[#f0efff] placeholder-[#4a4a6a]',
-                    'bg-[rgba(255,255,255,0.04)] border transition-all duration-200 outline-none',
+                    'w-full h-14 px-5 rounded-full text-base text-[#1a1830] placeholder-[#9ca3af]',
+                    'bg-[rgba(124,58,237,0.05)] border transition-all duration-200 outline-none',
                     'focus:ring-2 focus:ring-[rgba(124,58,237,0.5)] focus:border-[rgba(124,58,237,0.5)]',
                     state === 'error'
                       ? 'border-red-500/50'
-                      : 'border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.14)]',
+                      : 'border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.14)]',
                     'disabled:opacity-50',
                   ].join(' ')}
                 />
@@ -205,7 +205,7 @@ export default function Waitlist() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="mt-5 text-[#4a4a6a] text-xs"
+            className="mt-5 text-[#9ca3af] text-xs"
           >
             No spam. No commitment. Unsubscribe anytime.
           </motion.p>

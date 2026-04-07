@@ -16,7 +16,7 @@ export default function Solution() {
   return (
     <SectionWrapper
       id="solution"
-      className="bg-gradient-to-b from-[#020208] to-[#07070f]"
+      className="bg-gradient-to-b from-[#f8f7ff] to-[#ffffff]"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left: Text */}
@@ -35,7 +35,7 @@ export default function Solution() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-[#f0efff] mb-4"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-[#1a1830] mb-4"
           >
             Neora doesn&apos;t just
             <br />
@@ -57,7 +57,7 @@ export default function Solution() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[#8b8ba7] text-lg leading-relaxed mb-10"
+            className="text-[#5b5880] text-lg leading-relaxed mb-10"
           >
             Unlike digital archives or voice recordings, Neora AI creates a
             living model of your mind. A digital twin that doesn&apos;t just replay
@@ -73,7 +73,7 @@ export default function Solution() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: 0.25 + i * 0.08 }}
-                className="flex items-start gap-3 text-[#8b8ba7]"
+                className="flex items-start gap-3 text-[#5b5880]"
               >
                 <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-[rgba(124,58,237,0.2)] border border-[rgba(124,58,237,0.4)] flex items-center justify-center">
                   <svg
@@ -108,8 +108,8 @@ export default function Solution() {
                 N
               </div>
               <div>
-                <p className="text-[#f0efff] text-sm font-medium">Neora AI</p>
-                <p className="text-[#4a4a6a] text-xs">Digital Twin · Active</p>
+                <p className="text-[#1a1830] text-sm font-medium">Neora AI</p>
+                <p className="text-[#9ca3af] text-xs">Digital Twin · Active</p>
               </div>
               <div className="ml-auto w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             </div>
@@ -118,7 +118,7 @@ export default function Solution() {
               {/* User message */}
               <div className="flex justify-end">
                 <div className="max-w-[75%] bg-[rgba(124,58,237,0.15)] border border-[rgba(124,58,237,0.2)] rounded-2xl rounded-tr-md px-4 py-3">
-                  <p className="text-[#f0efff] text-sm">
+                  <p className="text-[#1a1830] text-sm">
                     What would grandpa have said about this?
                   </p>
                 </div>
@@ -127,8 +127,8 @@ export default function Solution() {
               {/* AI response */}
               <div className="flex gap-3">
                 <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] flex-shrink-0 mt-1" />
-                <div className="max-w-[80%] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded-2xl rounded-tl-md px-4 py-3">
-                  <p className="text-[#8b8ba7] text-sm leading-relaxed">
+                <div className="max-w-[80%] bg-[rgba(124,58,237,0.05)] border border-[rgba(0,0,0,0.06)] rounded-2xl rounded-tl-md px-4 py-3">
+                  <p className="text-[#5b5880] text-sm leading-relaxed">
                     Ha — you know me. I&apos;d have said &quot;Don&apos;t overthink it, just
                     take the first step. The rest follows.&quot; And then probably
                     offered you some tea.
@@ -137,8 +137,8 @@ export default function Solution() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.05)]">
-              <p className="text-[#4a4a6a] text-xs text-center tracking-wider uppercase">
+            <div className="mt-8 pt-6 border-t border-[rgba(0,0,0,0.04)]">
+              <p className="text-[#9ca3af] text-xs text-center tracking-wider uppercase">
                 A real conversation. A real presence.
               </p>
             </div>

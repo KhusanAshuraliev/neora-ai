@@ -70,7 +70,7 @@ export default function Hero() {
               className={
                 i === 3 || i === 4
                   ? 'bg-gradient-to-r from-[#7c3aed] via-[#a855f7] to-[#22d3ee] bg-clip-text text-transparent inline-block mr-3 md:mr-4'
-                  : 'text-[#f0efff] inline-block mr-3 md:mr-4'
+                  : 'text-[#1a1830] inline-block mr-3 md:mr-4'
               }
             >
               {word}
@@ -83,7 +83,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-[#8b8ba7] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-[#5b5880] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Neora AI creates a living digital twin of your mind — your memories,
           your personality, your voice — so the people you love can always
@@ -105,7 +105,7 @@ export default function Hero() {
           </Link>
           <Link
             href="#how-it-works"
-            className="px-8 py-4 rounded-full text-base font-medium text-[#8b8ba7] hover:text-[#f0efff] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.18)] transition-all duration-200"
+            className="px-8 py-4 rounded-full text-base font-medium text-[#5b5880] hover:text-[#1a1830] border border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.12)] transition-all duration-200"
           >
             See How It Works
           </Link>
@@ -116,7 +116,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="mt-10 text-[#4a4a6a] text-sm tracking-widest uppercase font-medium"
+          className="mt-10 text-[#9ca3af] text-sm tracking-widest uppercase font-medium"
         >
           Your mind. Beyond time.
         </motion.p>
@@ -129,7 +129,7 @@ export default function Hero() {
         transition={{ delay: 1.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="text-[#4a4a6a] text-[10px] tracking-[0.25em] uppercase">
+        <span className="text-[#9ca3af] text-[10px] tracking-[0.25em] uppercase">
           Scroll
         </span>
         <motion.div

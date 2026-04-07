@@ -29,9 +29,9 @@ const variantStyles = {
     'border border-[rgba(124,58,237,0.3)]',
     'hover:bg-[rgba(124,58,237,0.22)] hover:border-[rgba(124,58,237,0.5)]',
   ].join(' '),
-  ghost: 'text-[#8b8ba7] hover:text-[#f0efff] transition-colors',
+  ghost: 'text-[#5b5880] hover:text-[#1a1830] transition-colors',
   outline: [
-    'border border-[rgba(255,255,255,0.1)] text-[#f0efff]',
+    'border border-[rgba(0,0,0,0.1)] text-[#1a1830]',
     'hover:border-[rgba(124,58,237,0.45)] hover:bg-[rgba(124,58,237,0.08)]',
   ].join(' '),
 }
