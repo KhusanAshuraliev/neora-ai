@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo, useEffect, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import * as THREE from 'three'
@@ -188,22 +188,38 @@ function Scene() {
 // ─── Exported Canvas Component ───────────────────────────────────────────────
 
 export default function NeuralOrb() {
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    if (!wrapRef.current) return
+    const io = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0, rootMargin: '100px 0px' }
+    )
+    io.observe(wrapRef.current)
+    return () => io.disconnect()
+  }, [])
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 7], fov: 50 }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 1.5]}
-      style={{ background: 'transparent' }}
-    >
-      <Scene />
-      <EffectComposer>
-        <Bloom
-          intensity={0.9}
-          luminanceThreshold={0.15}
-          luminanceSmoothing={0.9}
-          mipmapBlur
-        />
-      </EffectComposer>
-    </Canvas>
+    <div ref={wrapRef} className="w-full h-full">
+      <Canvas
+        camera={{ position: [0, 0, 7], fov: 50 }}
+        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+        dpr={[1, 1.5]}
+        frameloop={visible ? 'always' : 'never'}
+        style={{ background: 'transparent' }}
+      >
+        <Scene />
+        <EffectComposer>
+          <Bloom
+            intensity={0.9}
+            luminanceThreshold={0.15}
+            luminanceSmoothing={0.9}
+            mipmapBlur
+          />
+        </EffectComposer>
+      </Canvas>
+    </div>
   )
 }

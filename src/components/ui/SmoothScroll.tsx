@@ -6,18 +6,17 @@ import Lenis from 'lenis'
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      duration: 0.9,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      wheelMultiplier: 1.05,
+      touchMultiplier: 1.8,
       infinite: false,
     })
 
-    function raf(time: number) {
+    let id = requestAnimationFrame(function raf(time: number) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    const id = requestAnimationFrame(raf)
+      id = requestAnimationFrame(raf)
+    })
 
     return () => {
       cancelAnimationFrame(id)

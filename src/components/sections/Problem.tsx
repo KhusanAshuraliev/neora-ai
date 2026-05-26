@@ -2,75 +2,83 @@
 
 import { motion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
-
-const facts = [
-  { number: '150,000', label: 'people leave this world every day', desc: 'Taking with them everything they knew, felt, and believed.' },
-  { number: '100%', label: 'of lived wisdom disappears', desc: 'Their experience of life — unrepeatable and irreplaceable — is gone.' },
-  { number: '0', label: 'second chances to hear them again', desc: 'No way to ask one more question. No way to feel their presence.' },
-]
+import { useTranslation } from '@/lib/LanguageProvider'
 
 export default function Problem() {
-  return (
-    <section id="problem" className="section-gray">
-      <div className="max-w-[980px] mx-auto px-5 py-24 md:py-32">
+  const { t } = useTranslation()
 
-        {/* Top — centered text block, Apple product-page style */}
-        <div className="text-center max-w-[640px] mx-auto mb-20">
-          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <SectionLabel>The Reality</SectionLabel>
+  return (
+    <section id="problem" className="relative">
+      <div className="divider-glow" />
+      <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
+        <div className="text-center max-w-[680px] mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionLabel>{t.problem.label}</SectionLabel>
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display font-bold text-[40px] md:text-[56px] tracking-[-0.025em] leading-[1.08] text-[#1d1d1f] mb-5"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.08 }}
+            className="font-semibold text-[40px] md:text-[60px] tracking-[-0.035em] leading-[1.05] text-white mb-6 text-balance"
           >
-            Every mind is{' '}
-            <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
-              irreplaceable.
-            </span>
+            {t.problem.headlinePre}{' '}
+            <span className="grad-text">{t.problem.headlineAccent}</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
-            className="text-[17px] text-[#6e6e73] leading-[1.6]"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.14 }}
+            className="text-[17px] text-white/55 leading-[1.65] text-balance"
           >
-            Every person carries a universe within them — decades of experiences,
-            a unique way of seeing the world, stories that belong to no one else.
-            When they&apos;re gone, that universe disappears with them.
+            {t.problem.subtitle}
           </motion.p>
         </div>
 
-        {/* Stats — clean Apple-style cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#d2d2d7] rounded-2xl overflow-hidden">
-          {facts.map((fact, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {t.problem.facts.map((fact, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-white p-8 md:p-10"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="glass glass-hover rounded-3xl p-8 md:p-10 relative overflow-hidden group"
             >
-              <p className="font-display font-bold text-[48px] md:text-[56px] tracking-[-0.03em] leading-none mb-3 bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
+              <div
+                className="absolute -top-20 -right-20 w-48 h-48 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: 'radial-gradient(circle, #8b5cf6, transparent 70%)' }}
+              />
+              <p className="relative font-semibold text-[52px] md:text-[60px] tracking-[-0.04em] leading-none mb-4 grad-text">
                 {fact.number}
               </p>
-              <p className="text-[15px] font-semibold text-[#1d1d1f] mb-2">{fact.label}</p>
-              <p className="text-[14px] text-[#6e6e73] leading-[1.55]">{fact.desc}</p>
+              <p className="relative text-[14px] font-semibold text-white mb-2">
+                {fact.label}
+              </p>
+              <p className="relative text-[13.5px] text-white/50 leading-[1.6]">
+                {fact.desc}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Closing quote */}
         <motion.blockquote
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-24 text-center max-w-[820px] mx-auto"
         >
-          <p className="font-display text-[28px] md:text-[36px] font-semibold tracking-[-0.02em] text-[#1d1d1f] leading-snug mb-4">
-            &ldquo;Their laughter. Their wisdom. Their way of seeing the world.&rdquo;
+          <p className="font-semibold text-[26px] md:text-[36px] tracking-[-0.025em] text-white leading-[1.25] mb-5 text-balance">
+            {t.problem.quote}
           </p>
-          <p className="text-[17px] text-[#6e6e73]">
-            Reduced to a fading memory. We decided to change that.
-          </p>
+          <p className="text-[16px] text-white/50">{t.problem.quoteSubtitle}</p>
         </motion.blockquote>
       </div>
     </section>

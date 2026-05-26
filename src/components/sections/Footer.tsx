@@ -1,52 +1,57 @@
+'use client'
+
 import Link from 'next/link'
-
-const navLinks = [
-  { label: 'The Story', href: '#problem' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Technology', href: '#technology' },
-  { label: 'Vision', href: '#vision' },
-  { label: 'Waitlist', href: '#waitlist' },
-]
-
-const legalLinks = [
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Terms of Service', href: '/terms' },
-]
+import { useTranslation } from '@/lib/LanguageProvider'
 
 export default function Footer() {
-  return (
-    <footer className="border-t border-[#d2d2d7] bg-[#f5f5f7]">
-      <div className="max-w-[980px] mx-auto px-5 py-16 md:py-20">
+  const { t } = useTranslation()
 
+  const navLinks = [
+    { label: t.footer.nav.story, href: '#problem' },
+    { label: t.footer.nav.howItWorks, href: '#how-it-works' },
+    { label: t.footer.nav.technology, href: '#technology' },
+    { label: t.footer.nav.vision, href: '#vision' },
+    { label: t.footer.nav.waitlist, href: '#waitlist' },
+  ]
+
+  const legalLinks = [
+    { label: t.footer.legal.privacy, href: '/privacy' },
+    { label: t.footer.legal.terms, href: '/terms' },
+  ]
+
+  return (
+    <footer className="relative border-t border-white/[0.06]">
+      <div className="divider-glow" />
+      <div className="max-w-[1100px] mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
           <div>
-            <div className="flex items-baseline gap-0.5 mb-3">
-              <span className="font-display font-semibold text-[17px] tracking-tight text-[#1d1d1f]">Neora</span>
-              <span className="text-[11px] font-semibold text-[#7c3aed] ml-0.5">AI</span>
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-6 h-6 rounded-full grad-fill glow-soft" />
+              <span className="font-semibold text-[15px] tracking-tight text-white">
+                Neora<span className="grad-text-violet ml-0.5">AI</span>
+              </span>
             </div>
-            <p className="text-[14px] text-[#86868b] leading-relaxed mb-4">
-              Your mind. Beyond time.
+            <p className="text-[14px] text-white/50 leading-relaxed mb-4">
+              {t.footer.tagline}
             </p>
             <a
               href="mailto:haapai.team@gmail.com"
-              className="text-[14px] text-[#6e6e73] hover:text-[#7c3aed] transition-colors duration-150"
+              className="text-[14px] text-white/65 hover:text-violet-300 transition-colors duration-150"
             >
               haapai.team@gmail.com
             </a>
           </div>
 
-          {/* Navigation */}
           <div>
-            <p className="text-[11px] font-semibold text-[#86868b] tracking-[0.08em] uppercase mb-5">
-              Navigation
+            <p className="text-[11px] font-semibold text-white/40 tracking-[0.16em] uppercase mb-5">
+              {t.footer.navHeading}
             </p>
             <ul className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors duration-150"
+                    className="text-[14px] text-white/55 hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -55,17 +60,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
-            <p className="text-[11px] font-semibold text-[#86868b] tracking-[0.08em] uppercase mb-5">
-              Legal
+            <p className="text-[11px] font-semibold text-white/40 tracking-[0.16em] uppercase mb-5">
+              {t.footer.legalHeading}
             </p>
             <ul className="flex flex-col gap-3">
               {legalLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors duration-150"
+                    className="text-[14px] text-white/55 hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -75,17 +79,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[#d2d2d7] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[12px] text-[#86868b]">
-            © {new Date().getFullYear()} Neora AI. All rights reserved.
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[12px] text-white/40">
+            © {new Date().getFullYear()} Neora AI. {t.footer.rights}
           </p>
-          <p className="text-[12px] text-[#86868b]">
-            Created by{' '}
+          <p className="text-[12px] text-white/40">
+            {t.footer.createdBy}{' '}
             <a
               href="mailto:haapai.team@gmail.com"
-              className="text-[#6e6e73] hover:text-[#7c3aed] transition-colors duration-150"
+              className="text-white/55 hover:text-violet-300 transition-colors duration-150"
             >
-              Neora AI Team
+              {t.footer.teamName}
             </a>
           </p>
         </div>

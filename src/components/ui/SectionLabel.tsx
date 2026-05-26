@@ -1,22 +1,22 @@
 import { cn } from '@/lib/utils'
 
-interface SectionLabelProps {
+interface Props {
   children: React.ReactNode
   className?: string
   light?: boolean
 }
 
-// Apple-style eyebrow — simple colored text, no pill or badge
-export default function SectionLabel({ children, className, light }: SectionLabelProps) {
+export default function SectionLabel({ children, className }: Props) {
   return (
     <p
       className={cn(
-        'text-sm font-semibold tracking-wide mb-4',
-        light ? 'text-[#a78bfa]' : 'text-[#7c3aed]',
+        'inline-flex items-center gap-3 text-[11px] font-semibold tracking-[0.2em] uppercase text-violet-300/90 mb-5',
         className
       )}
     >
+      <span className="w-6 h-px bg-gradient-to-r from-transparent to-violet-400/60" />
       {children}
+      <span className="w-6 h-px bg-gradient-to-l from-transparent to-violet-400/60" />
     </p>
   )
 }

@@ -1,19 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-})
+import BackgroundAurora from '@/components/ui/BackgroundAurora'
+import ScrollProgress from '@/components/ui/ScrollProgress'
+import CursorDot from '@/components/ui/CursorDot'
+import { LanguageProvider } from '@/lib/LanguageProvider'
 
 export const metadata: Metadata = {
   title: 'Neora AI — Your mind. Beyond time.',
@@ -43,10 +33,7 @@ export const metadata: Metadata = {
     title: 'Neora AI — Your mind. Beyond time.',
     description: 'Preserve who you are forever with Neora AI.',
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 }
 
 export default function RootLayout({
@@ -55,12 +42,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${outfit.variable}`}
-      suppressHydrationWarning
-    >
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="noise">
+        <LanguageProvider>
+          <BackgroundAurora />
+          <ScrollProgress />
+          <CursorDot />
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   )
 }

@@ -3,10 +3,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { useTranslation } from '@/lib/LanguageProvider'
 
 type State = 'idle' | 'loading' | 'success' | 'error' | 'duplicate'
 
 export default function Waitlist() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [state, setState] = useState<State>('idle')
   const [message, setMessage] = useState('')
@@ -17,7 +19,7 @@ export default function Waitlist() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email.trim())) {
       setState('error')
-      setMessage('Please enter a valid email address.')
+      setMessage(t.waitlist.errorInvalid)
       return
     }
 
@@ -35,54 +37,57 @@ export default function Waitlist() {
 
       if (res.status === 201) {
         setState('success')
-        setMessage(data.message || "You're on the list.")
+        setMessage(data.message || t.waitlist.successDefault)
         setEmail('')
       } else if (res.status === 409) {
         setState('duplicate')
-        setMessage(data.error || "You're already on the list!")
+        setMessage(data.error || t.waitlist.duplicateDefault)
       } else {
         setState('error')
-        setMessage(data.error || 'Something went wrong. Please try again.')
+        setMessage(data.error || t.waitlist.errorGeneric)
       }
     } catch {
       setState('error')
-      setMessage('Network error. Please check your connection and try again.')
+      setMessage(t.waitlist.errorNetwork)
     }
   }
 
   const isSuccess = state === 'success' || state === 'duplicate'
 
   return (
-    <section id="waitlist" className="section-gray">
-      <div className="max-w-[980px] mx-auto px-5 py-24 md:py-32">
-        <div className="max-w-[560px] mx-auto text-center">
-
+    <section id="waitlist" className="relative">
+      <div className="divider-glow" />
+      <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
+        <div className="max-w-[600px] mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="flex justify-center mb-5"
           >
-            <SectionLabel>Early Access</SectionLabel>
+            <SectionLabel>{t.waitlist.label}</SectionLabel>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display font-bold text-[40px] md:text-[56px] tracking-[-0.025em] leading-[1.08] text-[#1d1d1f] mb-5"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.08 }}
+            className="font-semibold text-[40px] md:text-[60px] tracking-[-0.035em] leading-[1.05] text-white mb-6 text-balance"
           >
-            Be among{' '}
-            <span className="bg-gradient-to-r from-[#7c3aed] to-[#a855f7] bg-clip-text text-transparent">
-              the first.
-            </span>
+            {t.waitlist.headlinePre}{' '}
+            <span className="grad-text">{t.waitlist.headlineAccent}</span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
-            className="text-[17px] text-[#6e6e73] leading-[1.6] mb-10"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.14 }}
+            className="text-[17px] text-white/55 leading-[1.65] mb-10"
           >
-            Neora AI is coming soon. Join the waitlist and we&apos;ll reach out
-            when your place is ready.
+            {t.waitlist.subtitle}
           </motion.p>
 
           <AnimatePresence mode="wait">
@@ -93,17 +98,17 @@ export default function Waitlist() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-2xl p-10 flex flex-col items-center gap-4"
+                className="glass-strong rounded-3xl p-10 flex flex-col items-center gap-4"
               >
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full grad-fill flex items-center justify-center glow-violet">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="font-display text-[22px] font-semibold text-[#1d1d1f]">
-                  {state === 'duplicate' ? "You're already in!" : "You're on the list."}
+                <p className="font-semibold text-[22px] text-white">
+                  {state === 'duplicate' ? t.waitlist.duplicateTitle : t.waitlist.successTitle}
                 </p>
-                <p className="text-[15px] text-[#6e6e73]">{message}</p>
+                <p className="text-[14.5px] text-white/55">{message}</p>
               </motion.div>
             ) : (
               <motion.form
@@ -122,21 +127,21 @@ export default function Waitlist() {
                     setEmail(e.target.value)
                     if (state === 'error') setState('idle')
                   }}
-                  placeholder="your@email.com"
+                  placeholder={t.waitlist.emailPlaceholder}
                   required
                   disabled={state === 'loading'}
                   className={[
-                    'flex-1 h-12 px-5 rounded-full text-[15px] text-[#1d1d1f] placeholder-[#86868b]',
-                    'bg-white border outline-none transition-all duration-150',
-                    'focus:ring-2 focus:ring-[#7c3aed]/30 focus:border-[#7c3aed]',
-                    state === 'error' ? 'border-red-400' : 'border-[#d2d2d7]',
+                    'flex-1 h-12 px-5 rounded-full text-[15px] text-white placeholder-white/35',
+                    'glass outline-none transition-all duration-200',
+                    'focus:bg-white/[0.06] focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/20',
+                    state === 'error' ? 'border-red-400/60' : '',
                     'disabled:opacity-50',
                   ].join(' ')}
                 />
                 <button
                   type="submit"
                   disabled={state === 'loading' || !email.trim()}
-                  className="h-12 px-6 rounded-full text-[15px] font-medium text-white bg-[#7c3aed] hover:bg-[#6d28d9] transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-2 min-w-[130px]"
+                  className="h-12 px-6 rounded-full text-[14.5px] font-medium text-white grad-fill glow-soft hover:scale-[1.02] transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 whitespace-nowrap flex items-center justify-center gap-2 min-w-[140px]"
                 >
                   {state === 'loading' ? (
                     <>
@@ -144,10 +149,10 @@ export default function Waitlist() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Joining...
+                      {t.waitlist.submitting}
                     </>
                   ) : (
-                    'Join Waitlist'
+                    t.waitlist.submit
                   )}
                 </button>
               </motion.form>
@@ -160,7 +165,7 @@ export default function Waitlist() {
                 initial={{ opacity: 0, y: -6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="mt-3 text-red-500 text-[13px] text-center"
+                className="mt-3 text-red-400 text-[13px] text-center"
               >
                 {message}
               </motion.p>
@@ -169,11 +174,13 @@ export default function Waitlist() {
 
           {!isSuccess && (
             <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-              viewport={{ once: true }} transition={{ delay: 0.5 }}
-              className="mt-4 text-[12px] text-[#86868b]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-5 text-[12px] text-white/40"
             >
-              No spam. No commitment. Unsubscribe anytime.
+              {t.waitlist.footnote}
             </motion.p>
           )}
         </div>

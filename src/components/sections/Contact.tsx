@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { useTranslation } from '@/lib/LanguageProvider'
 
 type State = 'idle' | 'loading' | 'success' | 'error'
 
@@ -14,13 +15,17 @@ interface FormData {
 }
 
 const fieldClass = [
-  'w-full px-4 rounded-xl text-[15px] text-[#1d1d1f] placeholder-[#86868b]',
-  'bg-[#f5f5f7] border border-transparent outline-none transition-all duration-150',
-  'focus:bg-white focus:border-[#7c3aed] focus:ring-2 focus:ring-[#7c3aed]/20',
+  'w-full px-4 rounded-2xl text-[14.5px] text-white placeholder-white/30',
+  'glass outline-none transition-all duration-200',
+  'focus:bg-white/[0.06] focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/20',
   'disabled:opacity-50',
 ].join(' ')
 
+const labelClass =
+  'text-[11px] font-semibold text-white/45 tracking-[0.12em] uppercase'
+
 export default function Contact() {
+  const { t } = useTranslation()
   const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', message: '' })
   const [state, setState] = useState<State>('idle')
   const [errorMsg, setErrorMsg] = useState('')
@@ -35,14 +40,14 @@ export default function Contact() {
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setState('error')
-      setErrorMsg('Please fill in your name, email, and message.')
+      setErrorMsg(t.contact.errorRequired)
       return
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(form.email.trim())) {
       setState('error')
-      setErrorMsg('Please enter a valid email address.')
+      setErrorMsg(t.contact.errorInvalidEmail)
       return
     }
 
@@ -63,43 +68,49 @@ export default function Contact() {
         setForm({ name: '', email: '', phone: '', message: '' })
       } else {
         setState('error')
-        setErrorMsg(data.error || 'Something went wrong. Please try again.')
+        setErrorMsg(data.error || t.contact.errorGeneric)
       }
     } catch {
       setState('error')
-      setErrorMsg('Network error. Please check your connection.')
+      setErrorMsg(t.contact.errorNetwork)
     }
   }
 
   return (
-    <section id="contact" className="section-white">
-      <div className="max-w-[980px] mx-auto px-5 py-24 md:py-32">
-        <div className="max-w-[600px] mx-auto">
-
+    <section id="contact" className="relative">
+      <div className="divider-glow" />
+      <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
+        <div className="max-w-[640px] mx-auto">
           <div className="text-center mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="flex justify-center mb-5"
             >
-              <SectionLabel>Get in Touch</SectionLabel>
+              <SectionLabel>{t.contact.label}</SectionLabel>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
-              className="font-display font-bold text-[40px] md:text-[52px] tracking-[-0.025em] leading-[1.08] text-[#1d1d1f] mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.08 }}
+              className="font-semibold text-[40px] md:text-[56px] tracking-[-0.035em] leading-[1.05] text-white mb-5 text-balance"
             >
-              Have a question?
+              {t.contact.headlinePre}{' '}
+              <span className="grad-text">{t.contact.headlineAccent}</span>
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
-              className="text-[17px] text-[#6e6e73] leading-[1.6]"
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.14 }}
+              className="text-[17px] text-white/55 leading-[1.65]"
             >
-              We&apos;d love to hear from you. Send us a message and we&apos;ll
-              get back to you as soon as possible.
+              {t.contact.subtitle}
             </motion.p>
           </div>
 
@@ -111,24 +122,20 @@ export default function Contact() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-[#f5f5f7] rounded-2xl p-12 flex flex-col items-center gap-4 text-center"
+                className="glass-strong rounded-3xl p-12 flex flex-col items-center gap-4 text-center"
               >
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full grad-fill flex items-center justify-center glow-violet">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="font-display text-[22px] font-semibold text-[#1d1d1f]">
-                  Message received.
-                </p>
-                <p className="text-[15px] text-[#6e6e73]">
-                  Thank you for reaching out. We&apos;ll get back to you shortly.
-                </p>
+                <p className="font-semibold text-[22px] text-white">{t.contact.successTitle}</p>
+                <p className="text-[14.5px] text-white/55">{t.contact.successBody}</p>
                 <button
                   onClick={() => setState('idle')}
-                  className="mt-2 text-[14px] text-[#7c3aed] hover:text-[#6d28d9] transition-colors"
+                  className="mt-2 text-[13.5px] text-violet-300 hover:text-violet-200 transition-colors"
                 >
-                  Send another message
+                  {t.contact.sendAnother}
                 </button>
               </motion.div>
             ) : (
@@ -139,29 +146,29 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col gap-4"
+                className="glass-strong rounded-3xl p-7 md:p-9 flex flex-col gap-5"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-[12px] font-medium text-[#6e6e73] tracking-wide uppercase">
-                      Full Name <span className="text-[#7c3aed]">*</span>
+                  <div className="flex flex-col gap-2">
+                    <label className={labelClass}>
+                      {t.contact.nameLabel} <span className="text-violet-300">*</span>
                     </label>
                     <input
                       type="text"
-                      placeholder="John Smith"
+                      placeholder={t.contact.namePlaceholder}
                       value={form.name}
                       onChange={(e) => update('name', e.target.value)}
                       disabled={state === 'loading'}
                       className={fieldClass + ' h-11'}
                     />
                   </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-[12px] font-medium text-[#6e6e73] tracking-wide uppercase">
-                      Email <span className="text-[#7c3aed]">*</span>
+                  <div className="flex flex-col gap-2">
+                    <label className={labelClass}>
+                      {t.contact.emailLabel} <span className="text-violet-300">*</span>
                     </label>
                     <input
                       type="email"
-                      placeholder="you@example.com"
+                      placeholder={t.contact.emailPlaceholder}
                       value={form.email}
                       onChange={(e) => update('email', e.target.value)}
                       disabled={state === 'loading'}
@@ -170,13 +177,16 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-medium text-[#6e6e73] tracking-wide uppercase">
-                    Phone <span className="text-[#86868b] normal-case tracking-normal font-normal">(optional)</span>
+                <div className="flex flex-col gap-2">
+                  <label className={labelClass}>
+                    {t.contact.phoneLabel}{' '}
+                    <span className="text-white/35 normal-case tracking-normal font-normal">
+                      {t.contact.phoneOptional}
+                    </span>
                   </label>
                   <input
                     type="tel"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder={t.contact.phonePlaceholder}
                     value={form.phone}
                     onChange={(e) => update('phone', e.target.value)}
                     disabled={state === 'loading'}
@@ -184,12 +194,12 @@ export default function Contact() {
                   />
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-medium text-[#6e6e73] tracking-wide uppercase">
-                    Message <span className="text-[#7c3aed]">*</span>
+                <div className="flex flex-col gap-2">
+                  <label className={labelClass}>
+                    {t.contact.messageLabel} <span className="text-violet-300">*</span>
                   </label>
                   <textarea
-                    placeholder="Tell us what's on your mind..."
+                    placeholder={t.contact.messagePlaceholder}
                     value={form.message}
                     onChange={(e) => update('message', e.target.value)}
                     disabled={state === 'loading'}
@@ -204,7 +214,7 @@ export default function Contact() {
                       initial={{ opacity: 0, y: -6 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="text-red-500 text-[13px]"
+                      className="text-red-400 text-[13px]"
                     >
                       {errorMsg}
                     </motion.p>
@@ -214,7 +224,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={state === 'loading'}
-                  className="w-full h-12 rounded-full text-[15px] font-medium text-white bg-[#7c3aed] hover:bg-[#6d28d9] transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-1"
+                  className="w-full h-12 rounded-full text-[14.5px] font-medium text-white grad-fill glow-soft hover:scale-[1.01] transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 mt-1"
                 >
                   {state === 'loading' ? (
                     <>
@@ -222,11 +232,11 @@ export default function Contact() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Sending...
+                      {t.contact.sending}
                     </>
                   ) : (
                     <>
-                      Send Message
+                      {t.contact.send}
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                       </svg>
@@ -234,8 +244,8 @@ export default function Contact() {
                   )}
                 </button>
 
-                <p className="text-[12px] text-[#86868b] text-center">
-                  We typically respond within 24 hours.
+                <p className="text-[12px] text-white/35 text-center">
+                  {t.contact.responseTime}
                 </p>
               </motion.form>
             )}
