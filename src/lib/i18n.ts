@@ -14,7 +14,7 @@ export const translations = {
       joinWaitlist: 'Join Waitlist',
     },
     hero: {
-      badge: 'Now in private alpha',
+      badge: 'Launching soon',
       headlinePre: 'Preserve who',
       headlineAccent: 'you are.',
       headlinePost: 'Forever.',
@@ -495,7 +495,7 @@ export const translations = {
       joinWaitlist: 'Записаться',
     },
     hero: {
-      badge: 'Сейчас в закрытой альфа-версии',
+      badge: 'Скоро запуск',
       headlinePre: 'Сохрани',
       headlineAccent: 'себя.',
       headlinePost: 'Навсегда.',
