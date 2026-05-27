@@ -44,7 +44,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/[0.12] mb-8 mt-8"
         >
           <span className="relative flex h-1.5 w-1.5">
@@ -59,7 +59,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
           className="font-semibold text-[56px] sm:text-[80px] md:text-[104px] lg:text-[120px] tracking-[-0.045em] leading-[0.95] text-white mb-8 text-balance"
         >
           {t.hero.headlinePre}
@@ -71,7 +71,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.35, delay: 0.3 }}
           className="text-[17px] md:text-[19px] text-white/60 leading-[1.55] max-w-[600px] mx-auto mb-12 font-light text-balance"
         >
           {t.hero.subtitle}
@@ -80,7 +80,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
+          transition={{ duration: 0.45, delay: 0.45 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <Link
@@ -103,7 +103,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.7 }}
+          transition={{ duration: 0.55, delay: 0.7 }}
           className="mt-20 flex items-center justify-center gap-10 md:gap-20"
         >
           {t.hero.stats.map((s, i) => (

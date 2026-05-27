@@ -38,7 +38,7 @@ export default function HowItWorks() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <SectionLabel light>{t.howItWorks.label}</SectionLabel>
           </motion.div>
@@ -46,7 +46,7 @@ export default function HowItWorks() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate text-balance"
           >
             {t.howItWorks.headlinePre}{' '}
@@ -61,7 +61,7 @@ export default function HowItWorks() {
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
               className="card-cream card-cream-hover rounded-2xl p-7 relative overflow-hidden"
             >
               <div className="flex items-center justify-between mb-6">

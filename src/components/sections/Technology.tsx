@@ -43,7 +43,7 @@ export default function Technology() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <SectionLabel light>{t.technology.label}</SectionLabel>
           </motion.div>
@@ -51,7 +51,7 @@ export default function Technology() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.technology.headlinePre}{' '}
@@ -61,7 +61,7 @@ export default function Technology() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.14 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="text-[17px] text-warm leading-[1.7] text-balance"
           >
             {t.technology.subtitle}
@@ -75,7 +75,7 @@ export default function Technology() {
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
               className="card-cream card-cream-hover rounded-2xl p-8 md:p-10"
             >
               <div className="flex items-start gap-5">
@@ -99,7 +99,7 @@ export default function Technology() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-12 text-center text-[12px] text-warm-soft max-w-xl mx-auto leading-relaxed"
         >
           {t.technology.footnote}

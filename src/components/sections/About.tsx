@@ -12,12 +12,12 @@ export default function About() {
       <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-14 lg:gap-20 items-start">
           <div>
-            <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
               <SectionLabel light>{t.about.label}</SectionLabel>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
               className="font-semibold tracking-[-0.035em] text-[40px] md:text-[56px] leading-[1.08] text-slate mb-6 text-balance"
             >
               {t.about.headlinePre}{' '}
@@ -25,14 +25,14 @@ export default function About() {
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
               className="text-[17px] text-warm leading-[1.75]"
             >
               {t.about.story}
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
+              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.2 }}
               className="mt-6 text-[14px] text-warm-soft"
             >
               {t.about.team}
@@ -43,7 +43,7 @@ export default function About() {
             {t.about.founders.map((f, i) => (
               <motion.div
                 key={f.name}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
                 className="card-cream card-cream-hover rounded-2xl p-6 md:p-7"
               >
                 <div className="flex items-start gap-5">

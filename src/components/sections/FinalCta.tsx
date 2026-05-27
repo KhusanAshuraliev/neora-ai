@@ -31,7 +31,7 @@ export default function FinalCta() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.45 }}
           className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#F2D4BE]/85 mb-10"
         >
           {t.finalCta.eyebrow}
@@ -41,7 +41,7 @@ export default function FinalCta() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           className="font-semibold text-[64px] sm:text-[88px] md:text-[120px] lg:text-[140px] tracking-[-0.05em] leading-[0.92] text-white mb-10 text-balance"
         >
           {t.finalCta.lineA}
@@ -55,7 +55,7 @@ export default function FinalCta() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.45, delay: 0.2 }}
           className="text-[20px] md:text-[24px] text-white/70 font-light mb-12"
         >
           {t.finalCta.sub}
@@ -65,7 +65,7 @@ export default function FinalCta() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.45, delay: 0.3 }}
         >
           <Link
             href="#waitlist"

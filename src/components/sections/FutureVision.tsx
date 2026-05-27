@@ -22,7 +22,7 @@ export default function FutureVision() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="flex justify-center mb-10"
         >
           <SectionLabel>{t.futureVision.label}</SectionLabel>
@@ -32,7 +32,7 @@ export default function FutureVision() {
           initial={{ opacity: 0, scale: 0.94 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           className="font-semibold tracking-[-0.035em] text-[72px] md:text-[120px] lg:text-[160px] tracking-[-0.04em] leading-none select-none mb-16 italic"
           style={{
             background:
@@ -52,7 +52,7 @@ export default function FutureVision() {
               initial={{ opacity: 0, x: i % 2 === 0 ? -24 : 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: i * 0.15, ease: 'easeOut' }}
+              transition={{ duration: 0.55, delay: i * 0.03, ease: 'easeOut' }}
               className="font-semibold text-[24px] md:text-[34px] text-white tracking-[-0.025em] leading-[1.3] text-balance"
             >
               {text}
@@ -74,7 +74,7 @@ export default function FutureVision() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.45, delay: 0.2 }}
         >
           <Link
             href="#waitlist"

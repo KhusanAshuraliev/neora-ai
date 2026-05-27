@@ -81,14 +81,14 @@ export default function Contact() {
         <div className="max-w-[640px] mx-auto">
           <div className="text-center mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
               className="flex justify-center mb-5"
             >
               <SectionLabel light>{t.contact.label}</SectionLabel>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
               className="font-semibold tracking-[-0.035em] text-[40px] md:text-[56px] leading-[1.05] text-slate mb-5 text-balance"
             >
               {t.contact.headlinePre}{' '}
@@ -96,7 +96,7 @@ export default function Contact() {
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
               className="text-[17px] text-warm leading-[1.7]"
             >
               {t.contact.subtitle}

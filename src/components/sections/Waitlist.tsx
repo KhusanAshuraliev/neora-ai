@@ -59,14 +59,14 @@ export default function Waitlist() {
       <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
         <div className="max-w-[600px] mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
             className="flex justify-center mb-5"
           >
             <SectionLabel light>{t.waitlist.label}</SectionLabel>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
             className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.waitlist.headlinePre}{' '}
@@ -74,7 +74,7 @@ export default function Waitlist() {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
             className="text-[17px] text-warm leading-[1.7] mb-10"
           >
             {t.waitlist.subtitle}

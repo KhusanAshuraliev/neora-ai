@@ -15,7 +15,7 @@ export default function Problem() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <SectionLabel light>{t.problem.label}</SectionLabel>
           </motion.div>
@@ -23,7 +23,7 @@ export default function Problem() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.problem.headlinePre}{' '}
@@ -33,7 +33,7 @@ export default function Problem() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.14 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="text-[17px] text-warm leading-[1.7] text-balance"
           >
             {t.problem.subtitle}
@@ -47,7 +47,7 @@ export default function Problem() {
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
               className="card-cream card-cream-hover rounded-2xl p-8 md:p-9"
             >
               <p className="font-semibold tracking-[-0.035em] text-[56px] md:text-[64px] leading-none mb-5 text-clay">
@@ -67,7 +67,7 @@ export default function Problem() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.35, delay: 0.2 }}
           className="mt-24 text-center max-w-[820px] mx-auto"
         >
           <p className="font-semibold tracking-[-0.035em] text-[28px] md:text-[40px] text-slate leading-[1.3] mb-5 text-balance">

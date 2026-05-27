@@ -16,7 +16,7 @@ export default function Solution() {
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               <SectionLabel light>{t.solution.label}</SectionLabel>
             </motion.div>
@@ -25,7 +25,7 @@ export default function Solution() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.08 }}
+              transition={{ duration: 0.45, delay: 0.05 }}
               className="font-semibold tracking-[-0.035em] text-[40px] md:text-[56px] leading-[1.08] text-slate mb-3 text-balance"
             >
               {t.solution.headlinePre}
@@ -35,7 +35,7 @@ export default function Solution() {
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.14 }}
+              transition={{ duration: 0.45, delay: 0.05 }}
               className="font-semibold tracking-[-0.035em] text-[32px] md:text-[44px] leading-[1.1] text-clay mb-8"
             >
               {t.solution.headlineAccent}
@@ -45,7 +45,7 @@ export default function Solution() {
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.18 }}
+              transition={{ duration: 0.45, delay: 0.1 }}
               className="text-[17px] text-warm leading-[1.75] mb-10"
             >
               {t.solution.subtitle}
@@ -58,7 +58,7 @@ export default function Solution() {
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.22 + i * 0.07 }}
+                  transition={{ duration: 0.35, delay: 0.05 + i * 0.04 }}
                   className="flex items-start gap-3"
                 >
                   <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#1F1F1F] flex items-center justify-center mt-0.5">
@@ -76,7 +76,7 @@ export default function Solution() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.35, delay: 0.2 }}
             className="relative"
           >
             <div className="relative card-cream rounded-2xl p-7 md:p-8 overflow-hidden">
@@ -103,7 +103,7 @@ export default function Solution() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
+                  transition={{ duration: 0.35, delay: 0.5 }}
                   className="flex justify-end"
                 >
                   <div className="max-w-[78%] bg-[#1F1F1F] rounded-2xl rounded-tr-md px-4 py-2.5">
@@ -117,7 +117,7 @@ export default function Solution() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.9 }}
+                  transition={{ duration: 0.35, delay: 0.9 }}
                   className="flex gap-3"
                 >
                   <div className="w-7 h-7 rounded-full bg-[#1F1F1F] flex-shrink-0 mt-0.5" />

@@ -38,7 +38,7 @@ export default function UseCases() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <SectionLabel light>{t.useCases.label}</SectionLabel>
           </motion.div>
@@ -46,7 +46,7 @@ export default function UseCases() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.useCases.headlinePre}{' '}
@@ -56,7 +56,7 @@ export default function UseCases() {
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.14 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
             className="text-[17px] text-warm leading-[1.7] text-balance"
           >
             {t.useCases.subtitle}
@@ -70,7 +70,7 @@ export default function UseCases() {
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.03 }}
               className="card-cream card-cream-hover rounded-2xl p-8 md:p-10"
             >
               <div className="flex items-start gap-5">

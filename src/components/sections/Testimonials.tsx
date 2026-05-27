@@ -13,18 +13,18 @@ export default function Testimonials() {
     <section id="testimonials" className="section-light border-t border-[#E5DECB] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-6 pt-28 pb-10 md:pt-40 md:pb-16">
         <div className="text-center max-w-[680px] mx-auto mb-16">
-          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
             <SectionLabel light>{t.testimonials.label}</SectionLabel>
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
             className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.testimonials.headlinePre}{' '}
             <span className="text-clay">{t.testimonials.headlineAccent}</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.05 }}
             className="text-[17px] text-warm leading-[1.7] text-balance"
           >
             {t.testimonials.subtitle}
