@@ -4,16 +4,17 @@ import { useRef, useMemo, useEffect, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import * as THREE from 'three'
+import type { Group, Mesh, Points } from 'three'
 
 // ─── Inner Scene ────────────────────────────────────────────────────────────
 
 function Scene() {
-  const groupRef = useRef<THREE.Group>(null)
-  const wireRef = useRef<THREE.Mesh>(null)
-  const particlesRef = useRef<THREE.Points>(null)
-  const ring1Ref = useRef<THREE.Mesh>(null)
-  const ring2Ref = useRef<THREE.Mesh>(null)
-  const ring3Ref = useRef<THREE.Mesh>(null)
+  const groupRef = useRef<Group>(null)
+  const wireRef = useRef<Mesh>(null)
+  const particlesRef = useRef<Points>(null)
+  const ring1Ref = useRef<Mesh>(null)
+  const ring2Ref = useRef<Mesh>(null)
+  const ring3Ref = useRef<Mesh>(null)
 
   // Track scroll and mouse without triggering re-renders
   const scrollProgress = useRef(0)
