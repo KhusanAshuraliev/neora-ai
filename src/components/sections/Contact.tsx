@@ -15,14 +15,13 @@ interface FormData {
 }
 
 const fieldClass = [
-  'w-full px-4 rounded-2xl text-[14.5px] text-white placeholder-white/30',
-  'glass outline-none transition-all duration-200',
-  'focus:bg-white/[0.06] focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/20',
+  'w-full px-4 rounded-xl text-[14.5px] text-slate placeholder-warm-soft',
+  'bg-[#F0EEE6] border border-[#D4CCB8] outline-none transition-all duration-200',
+  'focus:bg-white focus:border-[#CC785C] focus:ring-2 focus:ring-[#CC785C]/15',
   'disabled:opacity-50',
 ].join(' ')
 
-const labelClass =
-  'text-[11px] font-semibold text-white/45 tracking-[0.12em] uppercase'
+const labelClass = 'text-[11px] font-semibold text-warm tracking-[0.12em] uppercase'
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -77,38 +76,28 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative">
-      <div className="divider-glow" />
+    <section id="contact" className="section-light border-t border-[#E5DECB]">
       <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
         <div className="max-w-[640px] mx-auto">
           <div className="text-center mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="flex justify-center mb-5"
             >
-              <SectionLabel>{t.contact.label}</SectionLabel>
+              <SectionLabel light>{t.contact.label}</SectionLabel>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.08 }}
-              className="font-semibold text-[40px] md:text-[56px] tracking-[-0.035em] leading-[1.05] text-white mb-5 text-balance"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+              className="font-semibold tracking-[-0.035em] text-[40px] md:text-[56px] leading-[1.05] text-slate mb-5 text-balance"
             >
               {t.contact.headlinePre}{' '}
-              <span className="grad-text">{t.contact.headlineAccent}</span>
+              <span className="text-clay">{t.contact.headlineAccent}</span>
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.14 }}
-              className="text-[17px] text-white/55 leading-[1.65]"
+              initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+              className="text-[17px] text-warm leading-[1.7]"
             >
               {t.contact.subtitle}
             </motion.p>
@@ -118,23 +107,17 @@ export default function Contact() {
             {state === 'success' ? (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.96, y: 16 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="glass-strong rounded-3xl p-12 flex flex-col items-center gap-4 text-center"
+                initial={{ opacity: 0, scale: 0.96, y: 16 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}
+                className="card-cream rounded-2xl p-12 flex flex-col items-center gap-4 text-center"
               >
-                <div className="w-14 h-14 rounded-full grad-fill flex items-center justify-center glow-violet">
+                <div className="w-14 h-14 rounded-full bg-[#1F1F1F] flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="font-semibold text-[22px] text-white">{t.contact.successTitle}</p>
-                <p className="text-[14.5px] text-white/55">{t.contact.successBody}</p>
-                <button
-                  onClick={() => setState('idle')}
-                  className="mt-2 text-[13.5px] text-violet-300 hover:text-violet-200 transition-colors"
-                >
+                <p className="font-semibold tracking-[-0.035em] text-[24px] text-slate">{t.contact.successTitle}</p>
+                <p className="text-[14.5px] text-warm">{t.contact.successBody}</p>
+                <button onClick={() => setState('idle')} className="mt-2 text-[13.5px] text-clay hover:text-[#B86B53] transition-colors">
                   {t.contact.sendAnother}
                 </button>
               </motion.div>
@@ -142,80 +125,42 @@ export default function Contact() {
               <motion.form
                 key="form"
                 onSubmit={handleSubmit}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="glass-strong rounded-3xl p-7 md:p-9 flex flex-col gap-5"
+                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}
+                className="card-cream rounded-2xl p-7 md:p-9 flex flex-col gap-5"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
                     <label className={labelClass}>
-                      {t.contact.nameLabel} <span className="text-violet-300">*</span>
+                      {t.contact.nameLabel} <span className="text-clay">*</span>
                     </label>
-                    <input
-                      type="text"
-                      placeholder={t.contact.namePlaceholder}
-                      value={form.name}
-                      onChange={(e) => update('name', e.target.value)}
-                      disabled={state === 'loading'}
-                      className={fieldClass + ' h-11'}
-                    />
+                    <input type="text" placeholder={t.contact.namePlaceholder} value={form.name} onChange={(e) => update('name', e.target.value)} disabled={state === 'loading'} className={fieldClass + ' h-11'} />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className={labelClass}>
-                      {t.contact.emailLabel} <span className="text-violet-300">*</span>
+                      {t.contact.emailLabel} <span className="text-clay">*</span>
                     </label>
-                    <input
-                      type="email"
-                      placeholder={t.contact.emailPlaceholder}
-                      value={form.email}
-                      onChange={(e) => update('email', e.target.value)}
-                      disabled={state === 'loading'}
-                      className={fieldClass + ' h-11'}
-                    />
+                    <input type="email" placeholder={t.contact.emailPlaceholder} value={form.email} onChange={(e) => update('email', e.target.value)} disabled={state === 'loading'} className={fieldClass + ' h-11'} />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label className={labelClass}>
                     {t.contact.phoneLabel}{' '}
-                    <span className="text-white/35 normal-case tracking-normal font-normal">
-                      {t.contact.phoneOptional}
-                    </span>
+                    <span className="text-warm-soft normal-case tracking-normal font-normal">{t.contact.phoneOptional}</span>
                   </label>
-                  <input
-                    type="tel"
-                    placeholder={t.contact.phonePlaceholder}
-                    value={form.phone}
-                    onChange={(e) => update('phone', e.target.value)}
-                    disabled={state === 'loading'}
-                    className={fieldClass + ' h-11'}
-                  />
+                  <input type="tel" placeholder={t.contact.phonePlaceholder} value={form.phone} onChange={(e) => update('phone', e.target.value)} disabled={state === 'loading'} className={fieldClass + ' h-11'} />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label className={labelClass}>
-                    {t.contact.messageLabel} <span className="text-violet-300">*</span>
+                    {t.contact.messageLabel} <span className="text-clay">*</span>
                   </label>
-                  <textarea
-                    placeholder={t.contact.messagePlaceholder}
-                    value={form.message}
-                    onChange={(e) => update('message', e.target.value)}
-                    disabled={state === 'loading'}
-                    rows={5}
-                    className={fieldClass + ' py-3 resize-none leading-relaxed'}
-                  />
+                  <textarea placeholder={t.contact.messagePlaceholder} value={form.message} onChange={(e) => update('message', e.target.value)} disabled={state === 'loading'} rows={5} className={fieldClass + ' py-3 resize-none leading-relaxed'} />
                 </div>
 
                 <AnimatePresence>
                   {state === 'error' && errorMsg && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      className="text-red-400 text-[13px]"
-                    >
+                    <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-red-500 text-[13px]">
                       {errorMsg}
                     </motion.p>
                   )}
@@ -224,7 +169,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={state === 'loading'}
-                  className="w-full h-12 rounded-full text-[14.5px] font-medium text-white grad-fill glow-soft hover:scale-[1.01] transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 mt-1"
+                  className="w-full h-12 rounded-full text-[14.5px] font-medium btn-dark disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-1"
                 >
                   {state === 'loading' ? (
                     <>
@@ -244,9 +189,7 @@ export default function Contact() {
                   )}
                 </button>
 
-                <p className="text-[12px] text-white/35 text-center">
-                  {t.contact.responseTime}
-                </p>
+                <p className="text-[12px] text-warm-soft text-center">{t.contact.responseTime}</p>
               </motion.form>
             )}
           </AnimatePresence>

@@ -31,8 +31,7 @@ export default function UseCases() {
   const { t } = useTranslation()
 
   return (
-    <section id="use-cases" className="relative">
-      <div className="divider-glow" />
+    <section id="use-cases" className="section-light border-t border-[#E5DECB]">
       <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
         <div className="text-center max-w-[700px] mx-auto mb-16">
           <motion.div
@@ -41,24 +40,24 @@ export default function UseCases() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <SectionLabel>{t.useCases.label}</SectionLabel>
+            <SectionLabel light>{t.useCases.label}</SectionLabel>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-semibold text-[40px] md:text-[60px] tracking-[-0.035em] leading-[1.05] text-white mb-6 text-balance"
+            className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.useCases.headlinePre}{' '}
-            <span className="grad-text">{t.useCases.headlineAccent}</span>
+            <span className="text-clay">{t.useCases.headlineAccent}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.14 }}
-            className="text-[17px] text-white/55 leading-[1.65] text-balance"
+            className="text-[17px] text-warm leading-[1.7] text-balance"
           >
             {t.useCases.subtitle}
           </motion.p>
@@ -72,28 +71,24 @@ export default function UseCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="glass glass-hover rounded-3xl p-8 md:p-10 relative overflow-hidden group"
+              className="card-cream card-cream-hover rounded-2xl p-8 md:p-10"
             >
-              <div
-                className="absolute -bottom-32 -right-16 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: 'radial-gradient(circle, #8b5cf6, transparent 70%)' }}
-              />
-              <div className="relative flex items-start gap-5">
-                <div className="flex-shrink-0 w-11 h-11 rounded-2xl ring-orbit flex items-center justify-center text-violet-300 group-hover:text-white transition-colors">
+              <div className="flex items-start gap-5">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl icon-clay flex items-center justify-center">
                   {icons[i]}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2.5">
-                    <h3 className="font-semibold text-[19px] text-white tracking-tight">
+                    <h3 className="font-semibold text-[19px] text-slate tracking-tight">
                       {item.title}
                     </h3>
                     {item.tag && (
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-200 border border-violet-400/30">
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[#CC785C]/12 text-clay border border-[#CC785C]/30">
                         {item.tag}
                       </span>
                     )}
                   </div>
-                  <p className="text-[14.5px] text-white/55 leading-[1.6]">
+                  <p className="text-[14.5px] text-warm leading-[1.65]">
                     {item.desc}
                   </p>
                 </div>

@@ -43,9 +43,9 @@ function Scene() {
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
 
-    const violet = new THREE.Color('#7c3aed')
-    const lightPurple = new THREE.Color('#a855f7')
-    const cyan = new THREE.Color('#22d3ee')
+    const warmWhite = new THREE.Color('#F5F0E8')
+    const peach = new THREE.Color('#F2D4BE')
+    const clay = new THREE.Color('#CC785C')
     const goldenRatio = (1 + Math.sqrt(5)) / 2
 
     for (let i = 0; i < count; i++) {
@@ -58,12 +58,12 @@ function Scene() {
       positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
       positions[i * 3 + 2] = r * Math.cos(phi)
 
-      // Blend violet → light purple → subtle cyan towards the equator
+      // Warm tonal: warm white → peach → clay accent
       const t = i / count
       const color =
-        t < 0.65
-          ? violet.clone().lerp(lightPurple, t / 0.65)
-          : lightPurple.clone().lerp(cyan, ((t - 0.65) / 0.35) * 0.25)
+        t < 0.6
+          ? warmWhite.clone().lerp(peach, t / 0.6)
+          : peach.clone().lerp(clay, (t - 0.6) / 0.4)
 
       colors[i * 3] = color.r
       colors[i * 3 + 1] = color.g
@@ -121,20 +121,20 @@ function Scene() {
       {/* ── Core glow (innermost) ── */}
       <mesh>
         <sphereGeometry args={[0.55, 32, 32]} />
-        <meshBasicMaterial color="#a855f7" transparent opacity={0.18} />
+        <meshBasicMaterial color="#F2D4BE" transparent opacity={0.18} />
       </mesh>
 
       {/* ── Mid glow shell ── */}
       <mesh>
         <sphereGeometry args={[1.1, 32, 32]} />
-        <meshBasicMaterial color="#7c3aed" transparent opacity={0.06} />
+        <meshBasicMaterial color="#CC785C" transparent opacity={0.06} />
       </mesh>
 
       {/* ── Outer ambient shell (backside, subtle) ── */}
       <mesh>
         <sphereGeometry args={[2.1, 32, 32]} />
         <meshBasicMaterial
-          color="#7c3aed"
+          color="#CC785C"
           transparent
           opacity={0.025}
           side={THREE.BackSide}
@@ -145,10 +145,10 @@ function Scene() {
       <mesh ref={wireRef}>
         <icosahedronGeometry args={[1.48, 2]} />
         <meshBasicMaterial
-          color="#a855f7"
+          color="#F5F0E8"
           wireframe
           transparent
-          opacity={0.22}
+          opacity={0.18}
         />
       </mesh>
 
@@ -170,17 +170,17 @@ function Scene() {
       {/* ── Orbital rings ── */}
       <mesh ref={ring1Ref} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[2.28, 0.005, 2, 160]} />
-        <meshBasicMaterial color="#7c3aed" transparent opacity={0.55} />
+        <meshBasicMaterial color="#CC785C" transparent opacity={0.5} />
       </mesh>
 
       <mesh ref={ring2Ref} rotation={[Math.PI / 2.8, Math.PI / 5, 0]}>
         <torusGeometry args={[2.72, 0.004, 2, 160]} />
-        <meshBasicMaterial color="#22d3ee" transparent opacity={0.28} />
+        <meshBasicMaterial color="#F5F0E8" transparent opacity={0.25} />
       </mesh>
 
       <mesh ref={ring3Ref} rotation={[Math.PI / 6, 0, Math.PI / 4]}>
         <torusGeometry args={[3.1, 0.003, 2, 160]} />
-        <meshBasicMaterial color="#a855f7" transparent opacity={0.18} />
+        <meshBasicMaterial color="#F2D4BE" transparent opacity={0.18} />
       </mesh>
     </group>
   )
@@ -214,9 +214,9 @@ export default function NeuralOrb() {
         <Scene />
         <EffectComposer>
           <Bloom
-            intensity={0.9}
-            luminanceThreshold={0.15}
-            luminanceSmoothing={0.9}
+            intensity={0.45}
+            luminanceThreshold={0.4}
+            luminanceSmoothing={0.85}
             mipmapBlur
           />
         </EffectComposer>

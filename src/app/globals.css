@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  /* Dark cinematic palette */
   --bg: #05050d;
   --bg-2: #0a0717;
   --text: #f5f5fb;
@@ -14,6 +15,18 @@
   --cyan: #22d3ee;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Editorial cream palette (Anthropic-inspired) */
+  --cream: #F0EEE6;
+  --cream-light: #FAF8F2;
+  --cream-card: #FBFAF6;
+  --cream-border: #E5DECB;
+  --cream-border-strong: #D4CCB8;
+  --slate: #1F1F1F;
+  --warm: #6B6B6B;
+  --warm-soft: #8A8A8A;
+  --clay: #CC785C;
+  --clay-hover: #B86B53;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,7 +68,7 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #07071a; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6, #d946ef);
+  background: linear-gradient(180deg, #CC785C, #B86B53);
   border-radius: 3px;
 }
 
@@ -103,30 +116,39 @@ body {
     border-bottom: 1px solid var(--border);
   }
 
+  .nav-cream {
+    background: rgba(240, 238, 230, 0.88);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border-bottom: 1px solid var(--cream-border);
+  }
+
+  /* Warm tonal gradient — white → peach → clay (no more pink/cyan rainbow) */
   .grad-text {
-    background: linear-gradient(135deg, #a78bfa 0%, #d946ef 50%, #22d3ee 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F2D4BE 50%, #CC785C 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .grad-text-violet {
-    background: linear-gradient(135deg, #a78bfa 0%, #d946ef 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #CC785C 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .grad-fill {
-    background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+    background: #FFFFFF;
+    color: #1F1F1F;
   }
 
   .glow-violet {
-    box-shadow: 0 0 50px -8px rgba(139, 92, 246, 0.5), 0 0 100px -20px rgba(217, 70, 239, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(255, 255, 255, 0.35), 0 0 60px -20px rgba(204, 120, 92, 0.25);
   }
 
   .glow-soft {
-    box-shadow: 0 0 30px -4px rgba(139, 92, 246, 0.25);
+    box-shadow: 0 8px 24px -6px rgba(255, 255, 255, 0.18);
   }
 
   .grid-bg {
@@ -182,3 +204,80 @@ body {
 .animate-typing-3 { animation: typing-dot 1.2s ease-in-out 0.3s infinite; }
 
 .animate-float-y { animation: float-y 6s ease-in-out infinite; }
+
+/* ───────────────────────────────────────────────
+   Editorial / Anthropic light theme utilities
+   ─────────────────────────────────────────────── */
+
+@layer utilities {
+  .section-light {
+    background: var(--cream);
+    color: var(--slate);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-cream-alt {
+    background: var(--cream-light);
+    color: var(--slate);
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-cream {
+    background: var(--cream-card);
+    border: 1px solid var(--cream-border);
+    color: var(--slate);
+  }
+
+  .card-cream-hover {
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.4s ease;
+  }
+  .card-cream-hover:hover {
+    border-color: var(--clay);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -20px rgba(204, 120, 92, 0.18);
+  }
+
+  .btn-dark {
+    background: var(--slate);
+    color: #fff;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-dark:hover { background: #000; transform: scale(1.02); }
+
+  .btn-clay {
+    background: var(--clay);
+    color: #fff;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-clay:hover { background: var(--clay-hover); transform: scale(1.02); }
+
+  .btn-outline-slate {
+    background: transparent;
+    color: var(--slate);
+    border: 1px solid var(--cream-border-strong);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-outline-slate:hover {
+    background: rgba(31, 31, 31, 0.04);
+    border-color: var(--slate);
+  }
+
+  .text-clay { color: var(--clay); }
+  .text-slate { color: var(--slate); }
+  .text-warm { color: var(--warm); }
+  .text-warm-soft { color: var(--warm-soft); }
+
+  .font-serif-display {
+    font-family: 'New York', 'Charter', 'Iowan Old Style', 'Georgia', ui-serif, serif;
+    font-feature-settings: 'kern', 'liga', 'dlig', 'ss01';
+    letter-spacing: -0.02em;
+  }
+
+  .icon-clay {
+    background: rgba(204, 120, 92, 0.1);
+    border: 1px solid rgba(204, 120, 92, 0.25);
+    color: var(--clay);
+  }
+}

@@ -14,7 +14,7 @@ export default function FutureVision() {
 
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full blur-[140px] opacity-25 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #8b5cf6 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(circle, #CC785C 0%, transparent 60%)' }}
       />
 
       <div className="relative max-w-[1100px] mx-auto px-6 py-32 md:py-44 text-center">
@@ -33,10 +33,10 @@ export default function FutureVision() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="font-semibold text-[72px] md:text-[120px] lg:text-[160px] tracking-[-0.05em] leading-none select-none mb-16"
+          className="font-semibold tracking-[-0.035em] text-[72px] md:text-[120px] lg:text-[160px] tracking-[-0.04em] leading-none select-none mb-16 italic"
           style={{
             background:
-              'linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(167,139,250,0.08) 70%, transparent 100%)',
+              'linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(242,212,190,0.1) 70%, transparent 100%)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             color: 'transparent',
@@ -78,7 +78,7 @@ export default function FutureVision() {
         >
           <Link
             href="#waitlist"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-medium text-white grad-fill glow-violet hover:scale-[1.03] transition-transform duration-200"
+            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-medium bg-white text-[#1F1F1F] hover:bg-white/95 hover:scale-[1.03] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)]"
           >
             {t.futureVision.cta}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

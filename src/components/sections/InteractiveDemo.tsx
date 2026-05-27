@@ -36,11 +36,7 @@ export default function InteractiveDemo() {
   const { t } = useTranslation()
   const [text, setText] = useState('')
   const [step, setStep] = useState<Step>('idle')
-  const [snapshot, setSnapshot] = useState<{
-    tone: string
-    themes: string[]
-    memory: string
-  } | null>(null)
+  const [snapshot, setSnapshot] = useState<{ tone: string; themes: string[]; memory: string } | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -63,51 +59,31 @@ export default function InteractiveDemo() {
   }
 
   return (
-    <section id="demo" className="relative">
-      <div className="divider-glow" />
+    <section id="demo" className="section-light border-t border-[#E5DECB]">
       <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
         <div className="text-center max-w-[700px] mx-auto mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionLabel>{t.demo.label}</SectionLabel>
+          <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <SectionLabel light>{t.demo.label}</SectionLabel>
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-semibold text-[40px] md:text-[60px] tracking-[-0.035em] leading-[1.05] text-white mb-6 text-balance"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08 }}
+            className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate mb-6 text-balance"
           >
             {t.demo.headlinePre}{' '}
-            <span className="grad-text">{t.demo.headlineAccent}</span>
+            <span className="text-clay">{t.demo.headlineAccent}</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.14 }}
-            className="text-[17px] text-white/55 leading-[1.65] text-balance"
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.14 }}
+            className="text-[17px] text-warm leading-[1.7] text-balance"
           >
             {t.demo.subtitle}
           </motion.p>
         </div>
 
         <div className="relative max-w-[760px] mx-auto">
-          <div
-            className="absolute -inset-10 rounded-[40px] opacity-40 blur-3xl pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.5), transparent 70%)' }}
-          />
-
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative glass-strong rounded-3xl p-6 md:p-8"
+            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+            className="relative card-cream rounded-2xl p-6 md:p-8"
           >
             <form onSubmit={handleSubmit}>
               <textarea
@@ -116,15 +92,14 @@ export default function InteractiveDemo() {
                 placeholder={t.demo.placeholder}
                 rows={4}
                 disabled={step === 'thinking'}
-                className="w-full px-5 py-4 rounded-2xl text-[15px] text-white placeholder-white/30 bg-white/[0.03] border border-white/[0.08] outline-none transition-all focus:bg-white/[0.06] focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/20 resize-none leading-[1.55] disabled:opacity-60"
+                className="w-full px-5 py-4 rounded-xl text-[15px] text-slate placeholder-warm-soft bg-[#F0EEE6] border border-[#E5DECB] outline-none transition-all focus:bg-white focus:border-[#CC785C] focus:ring-2 focus:ring-[#CC785C]/15 resize-none leading-[1.55] disabled:opacity-60"
               />
-
               <div className="mt-4 flex items-center justify-between gap-3">
-                <span className="text-[12px] text-white/35">{text.length}/500</span>
+                <span className="text-[12px] text-warm-soft">{text.length}/500</span>
                 <button
                   type="submit"
                   disabled={step === 'thinking' || text.trim().length < 4}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[14px] font-medium text-white grad-fill glow-soft hover:scale-[1.02] transition-transform disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[14px] font-medium btn-dark disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {step === 'thinking' ? (
                     <>
@@ -149,34 +124,28 @@ export default function InteractiveDemo() {
             <AnimatePresence>
               {snapshot && step === 'result' && (
                 <motion.div
-                  initial={{ opacity: 0, y: 16, height: 0 }}
-                  animate={{ opacity: 1, y: 0, height: 'auto' }}
-                  exit={{ opacity: 0, y: -10, height: 0 }}
-                  transition={{ duration: 0.5 }}
+                  initial={{ opacity: 0, y: 16, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, y: -10, height: 0 }} transition={{ duration: 0.5 }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-7 pt-7 border-t border-white/[0.08]">
-                    <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-violet-300/80 mb-5">
+                  <div className="mt-7 pt-7 border-t border-[#E5DECB]">
+                    <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-clay mb-5">
                       {t.demo.resultLabel}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
-                      <div className="glass rounded-2xl p-4">
-                        <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-white/40 mb-1.5">
+                      <div className="bg-[#F0EEE6] border border-[#E5DECB] rounded-xl p-4">
+                        <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-warm-soft mb-1.5">
                           {t.demo.analyzing.tone}
                         </p>
-                        <p className="text-[18px] font-semibold text-white capitalize">{snapshot.tone}</p>
+                        <p className="text-[18px] font-semibold text-slate capitalize">{snapshot.tone}</p>
                       </div>
-                      <div className="glass rounded-2xl p-4">
-                        <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-white/40 mb-1.5">
+                      <div className="bg-[#F0EEE6] border border-[#E5DECB] rounded-xl p-4">
+                        <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-warm-soft mb-1.5">
                           {t.demo.analyzing.themes}
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {snapshot.themes.map((th) => (
-                            <span
-                              key={th}
-                              className="text-[12px] px-2 py-0.5 rounded-full bg-violet-500/15 text-violet-200 border border-violet-400/30"
-                            >
+                            <span key={th} className="text-[12px] px-2 py-0.5 rounded-full bg-[#CC785C]/12 text-clay border border-[#CC785C]/25">
                               {th}
                             </span>
                           ))}
@@ -184,22 +153,19 @@ export default function InteractiveDemo() {
                       </div>
                     </div>
 
-                    <div className="glass rounded-2xl p-4">
-                      <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-white/40 mb-1.5">
+                    <div className="bg-[#F0EEE6] border border-[#E5DECB] rounded-xl p-4">
+                      <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-warm-soft mb-1.5">
                         {t.demo.analyzing.memory}
                       </p>
-                      <p className="text-[14px] text-white/85 leading-[1.55] italic">“{snapshot.memory}”</p>
+                      <p className="text-[14px] text-slate leading-[1.55] italic font-semibold tracking-[-0.035em]">“{snapshot.memory}”</p>
                     </div>
 
                     <div className="mt-5 flex items-center justify-between gap-3">
-                      <p className="text-[11.5px] text-white/40 max-w-[440px] leading-[1.5]">
-                        <span className="text-white/55 font-medium">{t.demo.noteLabel}: </span>
+                      <p className="text-[11.5px] text-warm-soft max-w-[440px] leading-[1.5]">
+                        <span className="text-warm font-medium">{t.demo.noteLabel}: </span>
                         {t.demo.note}
                       </p>
-                      <button
-                        onClick={reset}
-                        className="shrink-0 text-[13px] text-violet-300 hover:text-violet-200 transition-colors"
-                      >
+                      <button onClick={reset} className="shrink-0 text-[13px] text-clay hover:text-[#B86B53] transition-colors">
                         {t.demo.reset}
                       </button>
                     </div>

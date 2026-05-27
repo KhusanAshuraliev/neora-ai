@@ -3,13 +3,20 @@
 import { useTranslation } from '@/lib/LanguageProvider'
 import { cn } from '@/lib/utils'
 
-export default function LanguageSwitcher({ className }: { className?: string }) {
+export default function LanguageSwitcher({
+  className,
+  dark,
+}: {
+  className?: string
+  dark?: boolean
+}) {
   const { lang, setLang } = useTranslation()
 
   return (
     <div
       className={cn(
-        'glass rounded-full p-1 flex items-center text-[11px] font-semibold tracking-[0.08em]',
+        'rounded-full p-1 flex items-center text-[11px] font-semibold tracking-[0.08em] border transition-colors',
+        dark ? 'bg-black/30 border-white/10' : 'bg-white/60 border-[#E5DECB]',
         className
       )}
     >
@@ -20,8 +27,12 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
         className={cn(
           'px-2.5 py-1 rounded-full transition-all duration-200',
           lang === 'en'
-            ? 'bg-white/[0.12] text-white'
-            : 'text-white/45 hover:text-white/75'
+            ? dark
+              ? 'bg-white/15 text-white'
+              : 'bg-[#1F1F1F] text-white'
+            : dark
+              ? 'text-white/55 hover:text-white/80'
+              : 'text-warm hover:text-slate'
         )}
       >
         EN
@@ -33,8 +44,12 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
         className={cn(
           'px-2.5 py-1 rounded-full transition-all duration-200',
           lang === 'ru'
-            ? 'bg-white/[0.12] text-white'
-            : 'text-white/45 hover:text-white/75'
+            ? dark
+              ? 'bg-white/15 text-white'
+              : 'bg-[#1F1F1F] text-white'
+            : dark
+              ? 'text-white/55 hover:text-white/80'
+              : 'text-warm hover:text-slate'
         )}
       >
         RU

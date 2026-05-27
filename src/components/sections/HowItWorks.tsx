@@ -31,8 +31,7 @@ export default function HowItWorks() {
   const { t } = useTranslation()
 
   return (
-    <section id="how-it-works" className="relative">
-      <div className="divider-glow" />
+    <section id="how-it-works" className="section-light border-t border-[#E5DECB]">
       <div className="max-w-[1100px] mx-auto px-6 py-28 md:py-40">
         <div className="text-center max-w-[680px] mx-auto mb-20">
           <motion.div
@@ -41,56 +40,46 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <SectionLabel>{t.howItWorks.label}</SectionLabel>
+            <SectionLabel light>{t.howItWorks.label}</SectionLabel>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-semibold text-[40px] md:text-[60px] tracking-[-0.035em] leading-[1.05] text-white text-balance"
+            className="font-semibold tracking-[-0.035em] text-[44px] md:text-[64px] leading-[1.05] text-slate text-balance"
           >
             {t.howItWorks.headlinePre}{' '}
-            <span className="grad-text">{t.howItWorks.headlineAccent}</span>
+            <span className="text-clay">{t.howItWorks.headlineAccent}</span>
           </motion.h2>
         </div>
 
-        <div className="relative">
-          <div
-            className="hidden md:block absolute top-1/2 left-[12%] right-[12%] h-px -translate-y-1/2"
-            style={{
-              background:
-                'linear-gradient(90deg, transparent, rgba(167,139,250,0.3), rgba(217,70,239,0.3), rgba(34,211,238,0.3), transparent)',
-            }}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative">
-            {t.howItWorks.steps.map((step, i) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glass glass-hover rounded-3xl p-7 relative overflow-hidden group"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-semibold text-[42px] tracking-[-0.04em] leading-none text-white/10 group-hover:text-white/15 transition-colors">
-                    {step.number}
-                  </span>
-                  <div className="w-10 h-10 rounded-2xl ring-orbit flex items-center justify-center text-violet-300 group-hover:text-white transition-colors">
-                    {icons[i]}
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {t.howItWorks.steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="card-cream card-cream-hover rounded-2xl p-7 relative overflow-hidden"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-semibold tracking-[-0.035em] text-[44px] leading-none text-[#D4CCB8]">
+                  {step.number}
+                </span>
+                <div className="w-10 h-10 rounded-xl icon-clay flex items-center justify-center">
+                  {icons[i]}
                 </div>
-                <h3 className="font-semibold text-[17px] text-white mb-2.5 tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="text-[13.5px] text-white/55 leading-[1.6]">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+              <h3 className="font-semibold text-[17px] text-slate mb-2.5 tracking-tight">
+                {step.title}
+              </h3>
+              <p className="text-[13.5px] text-warm leading-[1.65]">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

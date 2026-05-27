@@ -315,17 +315,17 @@ export const translations = {
       team: 'A small, dedicated team — building from anywhere love lives.',
       founders: [
         {
+          name: 'Khusan Ashuraliev',
+          role: 'Co-founder',
+          bio: 'I want my children to know their grandparents — not from stories, but from conversations.',
+          initials: 'KA',
+          location: 'Tashkent',
+        },
+        {
           name: 'Amirshokh Khakimov',
           role: 'Founder',
           bio: 'I started Neora so that no one ever has to say “I wish I could ask them one more thing.”',
           initials: 'AK',
-          location: 'Tashkent',
-        },
-        {
-          name: 'Khusan Ashuraliev',
-          role: 'Co-founder',
-          bio: 'Building Neora because the people who shaped me deserve to keep shaping the world.',
-          initials: 'KA',
           location: 'Tashkent',
         },
       ],
@@ -796,17 +796,17 @@ export const translations = {
       team: 'Небольшая, преданная команда — там, где живёт любовь.',
       founders: [
         {
+          name: 'Хусан Ашуралиев',
+          role: 'Со-основатель',
+          bio: 'Я хочу, чтобы мои дети знали своих бабушек и дедушек — не из рассказов, а из разговоров.',
+          initials: 'ХА',
+          location: 'Ташкент',
+        },
+        {
           name: 'Амиршох Хакимов',
           role: 'Основатель',
           bio: 'Я начал Neora, чтобы никому больше не пришлось говорить: «Жаль, я не успел спросить ещё одно».',
           initials: 'АХ',
-          location: 'Ташкент',
-        },
-        {
-          name: 'Хусан Ашуралиев',
-          role: 'Со-основатель',
-          bio: 'Создаю Neora, потому что люди, сформировавшие меня, заслуживают продолжать формировать мир.',
-          initials: 'ХА',
           location: 'Ташкент',
         },
       ],

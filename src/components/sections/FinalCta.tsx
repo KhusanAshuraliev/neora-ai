@@ -15,14 +15,14 @@ export default function FinalCta() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[700px] pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at top, rgba(167,139,250,0.3) 0%, transparent 60%)',
+            'radial-gradient(ellipse at top, rgba(242,212,190,0.18) 0%, transparent 60%)',
         }}
       />
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at bottom, rgba(217,70,239,0.25) 0%, transparent 65%)',
+            'radial-gradient(ellipse at bottom, rgba(204,120,92,0.22) 0%, transparent 65%)',
         }}
       />
 
@@ -32,7 +32,7 @@ export default function FinalCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-[11px] font-semibold tracking-[0.22em] uppercase text-violet-300/80 mb-10"
+          className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#F2D4BE]/85 mb-10"
         >
           {t.finalCta.eyebrow}
         </motion.p>
@@ -69,7 +69,7 @@ export default function FinalCta() {
         >
           <Link
             href="#waitlist"
-            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-[15px] font-medium text-white grad-fill glow-violet hover:scale-[1.03] transition-transform duration-200"
+            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-[15px] font-medium bg-white text-[#1F1F1F] hover:bg-white/95 hover:scale-[1.03] transition-all duration-200 shadow-[0_10px_40px_-10px_rgba(255,255,255,0.4)]"
           >
             {t.finalCta.cta}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

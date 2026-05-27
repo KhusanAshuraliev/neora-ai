@@ -85,7 +85,7 @@ export default function Hero() {
         >
           <Link
             href="#waitlist"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14.5px] font-medium text-white grad-fill glow-violet hover:scale-[1.03] transition-transform duration-200"
+            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14.5px] font-medium bg-white text-[#1F1F1F] hover:bg-white/95 hover:scale-[1.03] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)]"
           >
             {t.hero.ctaPrimary}
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
