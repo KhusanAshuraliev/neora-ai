@@ -116,30 +116,24 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className={cn(
-              'md:hidden px-6 py-5 flex flex-col gap-3 border-t',
-              scrolled ? 'nav-cream border-[#E5DECB]' : 'nav-glass border-white/[0.06]'
-            )}
+            className="md:hidden px-6 py-5 flex flex-col gap-3 border-t nav-cream border-[#E5DECB]"
           >
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={cn('text-[16px] py-1.5 transition-colors', scrolled ? 'text-slate/80 hover:text-slate' : 'text-white/80 hover:text-white')}
+                className="text-[16px] py-1.5 text-slate hover:text-clay transition-colors"
               >
                 {l.label}
               </Link>
             ))}
             <div className="flex items-center gap-3 pt-2">
-              <LanguageSwitcher dark={!scrolled} />
+              <LanguageSwitcher />
               <Link
                 href="#waitlist"
                 onClick={() => setOpen(false)}
-                className={cn(
-                  'flex-1 text-center text-sm font-medium px-5 py-2.5 rounded-full transition-colors',
-                  scrolled ? 'bg-[#1F1F1F] text-white' : 'bg-white text-[#1F1F1F]'
-                )}
+                className="flex-1 text-center text-sm font-medium px-5 py-2.5 rounded-full bg-[#1F1F1F] text-white"
               >
                 {t.nav.joinWaitlist}
               </Link>
