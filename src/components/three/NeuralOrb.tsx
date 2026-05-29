@@ -8,7 +8,7 @@ import type { Group, Mesh, Points } from 'three'
 
 // ─── Inner Scene ────────────────────────────────────────────────────────────
 
-function Scene() {
+function Scene({ lite = false }: { lite?: boolean }) {
   const groupRef = useRef<Group>(null)
   const wireRef = useRef<Mesh>(null)
   const particlesRef = useRef<Points>(null)
@@ -39,7 +39,7 @@ function Scene() {
 
   // ── Generate particles using Fibonacci sphere for uniform distribution ──
   const { positions, colors } = useMemo(() => {
-    const count = 2400
+    const count = lite ? 900 : 2400
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
 
@@ -71,7 +71,7 @@ function Scene() {
     }
 
     return { positions, colors }
-  }, [])
+  }, [lite])
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
@@ -188,7 +188,7 @@ function Scene() {
 
 // ─── Exported Canvas Component ───────────────────────────────────────────────
 
-export default function NeuralOrb() {
+export default function NeuralOrb({ lite = false }: { lite?: boolean } = {}) {
   const wrapRef = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(true)
 
@@ -206,12 +206,13 @@ export default function NeuralOrb() {
     <div ref={wrapRef} className="w-full h-full">
       <Canvas
         camera={{ position: [0, 0, 7], fov: 50 }}
-        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-        dpr={[1, 1.5]}
+        gl={{ antialias: !lite, alpha: true, powerPreference: lite ? 'low-power' : 'high-performance' }}
+        dpr={lite ? [1, 1] : [1, 1.5]}
         frameloop={visible ? 'always' : 'never'}
         style={{ background: 'transparent' }}
       >
-        <Scene />
+        <Scene lite={lite} />
+        {!lite && (
         <EffectComposer>
           <Bloom
             intensity={0.45}
@@ -220,6 +221,7 @@ export default function NeuralOrb() {
             mipmapBlur
           />
         </EffectComposer>
+        )}
       </Canvas>
     </div>
   )
