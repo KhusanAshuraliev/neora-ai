@@ -26,7 +26,42 @@ export default function FinalCta() {
         }}
       />
 
-      <div className="relative max-w-[1100px] mx-auto px-6 py-32 md:py-48 text-center">
+      <div className="relative max-w-[1100px] mx-auto px-6 py-28 md:py-36 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#F2D4BE]/85 mb-12"
+        >
+          {t.futureVision.label}
+        </motion.p>
+
+        <motion.h3
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-[36px] md:text-[60px] tracking-[-0.04em] leading-[0.95] text-white/15 font-semibold mb-10 select-none"
+        >
+          {t.futureVision.title}
+        </motion.h3>
+
+        <div className="flex flex-col gap-3 mb-20 max-w-[760px] mx-auto">
+          {t.futureVision.visions.map((text, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -16 : 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: 'easeOut' }}
+              className="font-semibold tracking-[-0.025em] text-[18px] md:text-[24px] text-white/75 leading-[1.4]"
+            >
+              {text}
+            </motion.p>
+          ))}
+        </div>
+
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +77,7 @@ export default function FinalCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="font-semibold text-[64px] sm:text-[88px] md:text-[120px] lg:text-[140px] tracking-[-0.05em] leading-[0.92] text-white mb-10 text-balance"
+          className="font-semibold text-[60px] sm:text-[88px] md:text-[120px] lg:text-[140px] tracking-[-0.05em] leading-[0.92] text-white mb-10 text-balance"
         >
           {t.finalCta.lineA}
           <br />

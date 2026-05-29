@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { useTranslation } from '@/lib/LanguageProvider'
@@ -9,16 +10,22 @@ import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
 export default function Navigation() {
   const { t } = useTranslation()
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
+  // Sub-pages always use the cream nav (no dark Hero behind them)
+  const isHome = pathname === '/'
+  const cream = scrolled || !isHome
+
   const links = [
-    { label: t.nav.story, href: '#problem' },
-    { label: t.nav.howItWorks, href: '#how-it-works' },
-    { label: t.nav.tryIt, href: '#demo' },
-    { label: t.nav.pricing, href: '#pricing' },
-    { label: t.nav.faq, href: '#faq' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.story, href: '/story' },
+    { label: t.nav.howItWorks, href: '/how-it-works' },
+    { label: t.nav.tryIt, href: '/try' },
+    { label: t.nav.pricing, href: '/pricing' },
+    { label: t.nav.faq, href: '/faq' },
+    { label: t.about.label, href: '/about' },
+    { label: t.nav.contact, href: '/contact' },
   ]
 
   useEffect(() => {
@@ -34,7 +41,7 @@ export default function Navigation() {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'nav-cream' : 'bg-transparent'
+        cream ? 'nav-cream' : 'bg-transparent'
       )}
     >
       <nav className="max-w-[1240px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
@@ -42,13 +49,13 @@ export default function Navigation() {
           <div
             className={cn(
               'w-7 h-7 rounded-full transition-colors duration-300 group-hover:scale-110 transition-transform',
-              scrolled ? 'bg-[#1F1F1F]' : 'bg-white'
+              cream ? 'bg-[#1F1F1F]' : 'bg-white'
             )}
           />
           <span
             className={cn(
               'font-semibold text-[15px] tracking-tight transition-colors duration-300',
-              scrolled ? 'text-slate' : 'text-white'
+              cream ? 'text-slate' : 'text-white'
             )}
           >
             Neora<span className="text-clay ml-0.5">AI</span>
@@ -58,7 +65,7 @@ export default function Navigation() {
         <div
           className={cn(
             'hidden lg:flex items-center gap-0.5 rounded-full px-1.5 py-1.5 transition-all duration-300 border',
-            scrolled
+            cream
               ? 'bg-white/50 border-[#E5DECB]'
               : 'bg-black/30 border-white/10'
           )}
@@ -69,7 +76,7 @@ export default function Navigation() {
               href={l.href}
               className={cn(
                 'px-3.5 py-1.5 text-[12.5px] rounded-full transition-all duration-200',
-                scrolled
+                cream
                   ? 'text-warm hover:text-slate hover:bg-[#1F1F1F]/[0.04]'
                   : 'text-white/70 hover:text-white hover:bg-white/[0.08]'
               )}
@@ -80,12 +87,12 @@ export default function Navigation() {
         </div>
 
         <div className="hidden md:flex items-center gap-2 shrink-0">
-          <LanguageSwitcher dark={!scrolled} />
+          <LanguageSwitcher dark={!cream} />
           <Link
-            href="#waitlist"
+            href="/#waitlist"
             className={cn(
               'inline-flex items-center gap-1.5 text-[12.5px] font-medium px-4 py-2 rounded-full transition-all duration-200',
-              scrolled
+              cream
                 ? 'bg-[#1F1F1F] text-white hover:bg-black'
                 : 'bg-white text-[#1F1F1F] hover:bg-white/90'
             )}
@@ -98,7 +105,7 @@ export default function Navigation() {
         </div>
 
         <button
-          className={cn('md:hidden p-2 transition-colors', scrolled ? 'text-slate' : 'text-white')}
+          className={cn('md:hidden p-2 transition-colors', cream ? 'text-slate' : 'text-white')}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -131,7 +138,7 @@ export default function Navigation() {
             <div className="flex items-center gap-3 pt-2">
               <LanguageSwitcher />
               <Link
-                href="#waitlist"
+                href="/#waitlist"
                 onClick={() => setOpen(false)}
                 className="flex-1 text-center text-sm font-medium px-5 py-2.5 rounded-full bg-[#1F1F1F] text-white"
               >

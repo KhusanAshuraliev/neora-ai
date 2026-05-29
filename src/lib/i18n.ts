@@ -465,7 +465,21 @@ export const translations = {
     footer: {
       tagline: 'Your mind. Beyond time.',
       navHeading: 'Navigation',
+      productHeading: 'Product',
+      companyHeading: 'Company',
       legalHeading: 'Legal',
+      builtIn: 'Built in Tashkent · Uzbekistan',
+      statusLabel: 'Launching soon',
+      description:
+        'A living digital twin of your mind — your memories, personality, and voice. Preserved forever.',
+      newsletterTitle: 'Stay in the loop.',
+      newsletterSub: 'Get notified the moment Neora opens to the public.',
+      newsletterPlaceholder: 'your@email.com',
+      newsletterCta: 'Subscribe',
+      newsletterSubmitting: 'Subscribing…',
+      newsletterSuccess: 'You’re subscribed.',
+      newsletterAlready: 'You’re already subscribed.',
+      newsletterError: 'Something went wrong. Try again.',
       nav: {
         story: 'Story',
         howItWorks: 'How It Works',
@@ -946,7 +960,21 @@ export const translations = {
     footer: {
       tagline: 'Ваш разум. За пределами времени.',
       navHeading: 'Навигация',
+      productHeading: 'Продукт',
+      companyHeading: 'Команда',
       legalHeading: 'Юридическое',
+      builtIn: 'Создано в Ташкенте · Узбекистан',
+      statusLabel: 'Скоро запуск',
+      description:
+        'Живой цифровой двойник вашего разума — воспоминания, личность и голос. Сохранено навсегда.',
+      newsletterTitle: 'Будьте в курсе.',
+      newsletterSub: 'Узнайте первыми, когда Neora откроется публично.',
+      newsletterPlaceholder: 'ваш@email.com',
+      newsletterCta: 'Подписаться',
+      newsletterSubmitting: 'Подписываем…',
+      newsletterSuccess: 'Вы подписаны.',
+      newsletterAlready: 'Вы уже подписаны.',
+      newsletterError: 'Что-то пошло не так. Попробуйте снова.',
       nav: {
         story: 'История',
         howItWorks: 'Как это работает',

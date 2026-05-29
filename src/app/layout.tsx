@@ -6,7 +6,11 @@ import CursorDot from '@/components/ui/CursorDot'
 import { LanguageProvider } from '@/lib/LanguageProvider'
 
 export const metadata: Metadata = {
-  title: 'Neora AI — Your mind. Beyond time.',
+  metadataBase: new URL('https://www.neora.page'),
+  title: {
+    default: 'Neora AI — Your mind. Beyond time.',
+    template: '%s — Neora AI',
+  },
   description:
     'Neora AI preserves your identity, memories, and personality — creating a digital twin that thinks, responds, and communicates just like you. Forever.',
   keywords: [
@@ -23,7 +27,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Neora AI — Your mind. Beyond time.',
     description:
-      'Preserve who you are forever. Neora AI creates a living digital twin of your mind.',
+      'Preserve who you are forever. A living digital twin of your mind — your memories, personality, and voice.',
+    url: 'https://www.neora.page',
     type: 'website',
     locale: 'en_US',
     siteName: 'Neora AI',
@@ -32,8 +37,17 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Neora AI — Your mind. Beyond time.',
     description: 'Preserve who you are forever with Neora AI.',
+    creator: '@neoraai',
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+    },
+  },
 }
 
 export default function RootLayout({
