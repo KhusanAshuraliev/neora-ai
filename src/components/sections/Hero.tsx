@@ -46,9 +46,9 @@ export default function Hero() {
     }
 
     if ('requestIdleCallback' in window) {
-      ;(window as any).requestIdleCallback(load, { timeout: isDesktop ? 1500 : 2500 })
+      ;(window as any).requestIdleCallback(load, { timeout: isDesktop ? 1200 : 1800 })
     } else {
-      setTimeout(load, isDesktop ? 300 : 1200)
+      setTimeout(load, isDesktop ? 200 : 800)
     }
   }, [])
 
