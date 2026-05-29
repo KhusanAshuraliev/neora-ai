@@ -31,15 +31,13 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
   const y = useTransform(scrollYProgress, [0, 1], [0, -80])
 
-  // Lazy-load the 3D orb on all devices, but defer until the page is fully
-  // interactive. Mobile gets a lighter variant (fewer particles, no bloom).
-  const [NeuralOrb, setNeuralOrb] = useState<ComponentType<{ lite?: boolean }> | null>(null)
-  const [isLite, setIsLite] = useState(false)
+  // Lazy-load the 3D orb on all devices, deferred until the page is interactive.
+  // Same full-quality orb everywhere — just doesn't block first paint or scroll.
+  const [NeuralOrb, setNeuralOrb] = useState<ComponentType | null>(null)
 
   useEffect(() => {
     const isDesktop =
       window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches
-    setIsLite(!isDesktop)
 
     const load = () => {
       import('@/components/three/NeuralOrb').then((mod) =>
@@ -47,12 +45,10 @@ export default function Hero() {
       )
     }
 
-    // Defer aggressively on mobile so the orb never blocks initial interactivity.
-    // Desktop loads sooner since it has cycles to spare.
     if ('requestIdleCallback' in window) {
-      ;(window as any).requestIdleCallback(load, { timeout: isDesktop ? 1500 : 3500 })
+      ;(window as any).requestIdleCallback(load, { timeout: isDesktop ? 1500 : 2500 })
     } else {
-      setTimeout(load, isDesktop ? 300 : 1500)
+      setTimeout(load, isDesktop ? 300 : 1200)
     }
   }, [])
 
@@ -63,7 +59,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {NeuralOrb ? <NeuralOrb lite={isLite} /> : <OrbStaticBg />}
+        {NeuralOrb ? <NeuralOrb /> : <OrbStaticBg />}
       </div>
 
       <div
