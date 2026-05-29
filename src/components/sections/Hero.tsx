@@ -1,15 +1,13 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef, useState, type ComponentType } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useTranslation } from '@/lib/LanguageProvider'
 import CountUp from '@/components/ui/CountUp'
 
-const NeuralOrb = dynamic(() => import('@/components/three/NeuralOrb'), {
-  ssr: false,
-  loading: () => (
+function OrbStaticBg() {
+  return (
     <div className="w-full h-full relative">
       <div className="absolute inset-0 flex items-center justify-center">
         <div
@@ -23,8 +21,8 @@ const NeuralOrb = dynamic(() => import('@/components/three/NeuralOrb'), {
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#F2D4BE] opacity-90" />
     </div>
-  ),
-})
+  )
+}
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -33,6 +31,25 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
   const y = useTransform(scrollYProgress, [0, 1], [0, -80])
 
+  // Lazy-load the 3D orb only on desktop with a hover-capable pointer
+  // (skips the heavy Three.js bundle entirely on mobile)
+  const [NeuralOrb, setNeuralOrb] = useState<ComponentType | null>(null)
+
+  useEffect(() => {
+    const isCapable =
+      window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches
+    if (!isCapable) return
+    // Defer to idle so it never blocks first paint
+    const load = () => {
+      import('@/components/three/NeuralOrb').then((mod) => setNeuralOrb(() => mod.default))
+    }
+    if ('requestIdleCallback' in window) {
+      ;(window as any).requestIdleCallback(load, { timeout: 1500 })
+    } else {
+      setTimeout(load, 300)
+    }
+  }, [])
+
   return (
     <section
       ref={ref}
@@ -40,7 +57,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <NeuralOrb />
+        {NeuralOrb ? <NeuralOrb /> : <OrbStaticBg />}
       </div>
 
       <div
