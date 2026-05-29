@@ -9,7 +9,21 @@ import CountUp from '@/components/ui/CountUp'
 
 const NeuralOrb = dynamic(() => import('@/components/three/NeuralOrb'), {
   ssr: false,
-  loading: () => <div className="w-full h-full" />,
+  loading: () => (
+    <div className="w-full h-full relative">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className="w-[480px] h-[480px] rounded-full opacity-70"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(204,120,92,0.28) 0%, rgba(242,212,190,0.10) 40%, transparent 70%)',
+            filter: 'blur(40px)',
+          }}
+        />
+      </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#F2D4BE] opacity-90" />
+    </div>
+  ),
 })
 
 export default function Hero() {
@@ -41,12 +55,7 @@ export default function Hero() {
         style={{ opacity, y }}
         className="relative z-10 text-center max-w-[940px] mx-auto px-6"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/[0.12] mb-8 mt-8"
-        >
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-white/[0.12] mb-8 mt-8">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
@@ -54,35 +63,20 @@ export default function Hero() {
           <span className="text-[10.5px] tracking-[0.18em] uppercase text-white/70">
             {t.hero.badge}
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-          className="font-semibold text-[56px] sm:text-[80px] md:text-[104px] lg:text-[120px] tracking-[-0.045em] leading-[0.95] text-white mb-8 text-balance"
-        >
+        <h1 className="font-semibold text-[56px] sm:text-[80px] md:text-[104px] lg:text-[120px] tracking-[-0.045em] leading-[0.95] text-white mb-8 text-balance">
           {t.hero.headlinePre}
           <br />
           <span className="grad-text">{t.hero.headlineAccent}</span>{' '}
           <span className="text-white/95">{t.hero.headlinePost}</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, delay: 0.3 }}
-          className="text-[17px] md:text-[19px] text-white/60 leading-[1.55] max-w-[600px] mx-auto mb-12 font-light text-balance"
-        >
+        <p className="text-[17px] md:text-[19px] text-white/60 leading-[1.55] max-w-[600px] mx-auto mb-12 font-light text-balance">
           {t.hero.subtitle}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="#waitlist"
             className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14.5px] font-medium bg-white text-[#1F1F1F] hover:bg-white/95 hover:scale-[1.03] transition-all duration-200 shadow-[0_8px_30px_-8px_rgba(255,255,255,0.35)]"
@@ -98,12 +92,9 @@ export default function Hero() {
           >
             {t.hero.ctaSecondary}
           </Link>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.7 }}
+        <div
           className="mt-20 flex items-center justify-center gap-10 md:gap-20"
         >
           {t.hero.stats.map((s, i) => (
@@ -117,7 +108,7 @@ export default function Hero() {
               </p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
