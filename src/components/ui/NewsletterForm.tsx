@@ -84,14 +84,14 @@ export default function NewsletterForm() {
               placeholder={t.footer.newsletterPlaceholder}
               required
               disabled={state === 'loading'}
-              className={`flex-1 h-11 px-4 rounded-full text-[14px] text-slate placeholder-warm-soft bg-white border outline-none transition-all duration-200 focus:border-[#CC785C] focus:ring-2 focus:ring-[#CC785C]/15 disabled:opacity-50 ${
+              className={`flex-1 h-9 px-4 rounded-full text-[13px] text-slate placeholder-warm-soft bg-white border outline-none transition-all duration-200 focus:border-[#CC785C] focus:ring-2 focus:ring-[#CC785C]/15 disabled:opacity-50 ${
                 state === 'error' ? 'border-red-400' : 'border-[#D4CCB8]'
               }`}
             />
             <button
               type="submit"
               disabled={state === 'loading' || !email.trim()}
-              className="h-11 px-5 rounded-full text-[13.5px] font-medium btn-dark disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-1.5 min-w-[120px]"
+              className="h-9 px-4 rounded-full text-[12.5px] font-medium btn-dark disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-1.5 min-w-[100px]"
             >
               {state === 'loading' ? (
                 <>

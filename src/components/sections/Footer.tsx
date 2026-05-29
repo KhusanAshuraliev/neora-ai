@@ -29,15 +29,15 @@ export default function Footer() {
   return (
     <footer className="relative section-light border-t border-[#D4CCB8]">
       <div className="max-w-[1200px] mx-auto px-6 py-7 md:py-9">
-        {/* Newsletter row — compact horizontal */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-4 md:gap-8 items-center pb-6 mb-6 border-b border-[#E5DECB]">
-          <div>
-            <p className="text-[15px] font-semibold tracking-tight text-slate">
-              {t.footer.newsletterTitle}{' '}
-              <span className="text-warm font-normal">{t.footer.newsletterSub}</span>
-            </p>
+        {/* Newsletter row — minimal */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 pb-5 mb-5 border-b border-[#E5DECB]">
+          <p className="text-[13px] text-warm shrink-0">
+            <span className="font-semibold text-slate">{t.footer.newsletterTitle}</span>{' '}
+            {t.footer.newsletterSub}
+          </p>
+          <div className="flex-1 w-full md:max-w-[400px] md:ml-auto">
+            <NewsletterForm />
           </div>
-          <NewsletterForm />
         </div>
 
         {/* Main columns */}
