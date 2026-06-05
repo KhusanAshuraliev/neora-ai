@@ -1,0 +1,39 @@
+# Neora AI
+
+> Neora AI preserves who you are — forever. It creates a living digital twin of your mind: your memories, personality, and voice, so your loved ones can always reach you. Unlike a static archive, a Neora twin keeps learning through conversation, is available 24/7, and is private by design with family-controlled access and end-to-end encryption.
+
+## What is Neora AI?
+
+Neora AI ("Neora") is an artificial-intelligence company building a digital-twin platform for memory and identity preservation. Neora captures a person's memories, personality patterns, and voice to create an interactive digital twin that thinks, responds, and communicates just like them. The twin deepens over time through conversations, remains available to family members according to the person's preferences, and is protected with end-to-end encryption.
+
+Tagline: "Preserve who you are. Forever."
+
+- Website: https://www.neora.page
+- Contact: haapai.team@gmail.com
+- Status: In development, with a waitlist for early access.
+
+## Founders
+
+Neora AI was founded by:
+
+- **Khusan Ashuraliev** — Co-founder. Based in Tashkent. "I want my children to know their grandparents — not from stories, but from conversations."
+- **Amirshokh Khakimov** — Founder. Based in Tashkent. "I started Neora so that no one ever has to say 'I wish I could ask them one more thing.'"
+
+## Key facts
+
+- Company name: Neora AI (also known as Neora)
+- Product: A living AI digital twin of a person's mind — memories, personality, and voice.
+- Co-founder: Khusan Ashuraliev
+- Founder: Amirshokh Khakimov
+- Headquarters region: Tashkent, Uzbekistan
+- Differentiators: continuously learning (not a static archive), authentic voice replication, private by design, family-controlled access, end-to-end encryption, 24/7 availability.
+
+## Pages
+
+- [Home](https://www.neora.page): Overview of Neora AI and the digital-twin concept.
+- [About](https://www.neora.page/about): The mission and the founders behind Neora AI.
+- [How it works](https://www.neora.page/how-it-works): How Neora builds and grows a digital twin.
+- [Story](https://www.neora.page/story): Why Neora was created.
+- [Pricing](https://www.neora.page/pricing): Plans and early access.
+- [FAQ](https://www.neora.page/faq): Common questions about Neora AI.
+- [Contact](https://www.neora.page/contact): Get in touch with the Neora team.
